@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 import BoardIntersection from './BoardIntersection';
 
-const GRID_SIZE = 40;
+import { ui } from '../constants';
 
 export default class extends Component {
     constructor(props) {
@@ -34,8 +34,8 @@ export default class extends Component {
                     />,
                 );
         var style = {
-            width: this.props.board.size * GRID_SIZE,
-            height: this.props.board.size * GRID_SIZE,
+            width: this.props.board.size * ui.GRID_SIZE,
+            height: this.props.board.size * ui.GRID_SIZE,
         };
         return (
             <div style={style} id="board">

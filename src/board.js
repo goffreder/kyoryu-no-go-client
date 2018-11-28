@@ -3,29 +3,27 @@ import $ from 'jquery';
 import each from 'lodash/each';
 import isEmpty from 'lodash/isEmpty';
 
+import { board } from './constants';
+
 export var Board = function(size) {
-    this.current_color = Board.BLACK;
+    this.current_color = board.BLACK;
     this.size = size;
     this.board = this.create_board(size);
     this.last_move_passed = false;
 };
 
-Board.EMPTY = 0;
-Board.BLACK = 1;
-Board.WHITE = 2;
-
 Board.prototype.create_board = function(size) {
     var m = [];
     for (var i = 0; i < size; i++) {
         m[i] = [];
-        for (var j = 0; j < size; j++) m[i][j] = Board.EMPTY;
+        for (var j = 0; j < size; j++) m[i][j] = board.EMPTY;
     }
     return m;
 };
 
 Board.prototype.switch_player = function() {
     this.current_color =
-        this.current_color === Board.BLACK ? Board.WHITE : Board.BLACK;
+        this.current_color === board.BLACK ? board.WHITE : board.BLACK;
 };
 
 Board.prototype.pass = function() {
@@ -39,7 +37,7 @@ Board.prototype.end_game = function() {
 };
 
 Board.prototype.play = function(i, j) {
-    if (this.board[i][j] !== Board.EMPTY) return;
+    if (this.board[i][j] !== board.EMPTY) return;
 
     var color = (this.board[i][j] = this.current_color);
     var captured = [];
@@ -49,7 +47,7 @@ Board.prototype.play = function(i, j) {
     var self = this;
     each(neighbors, function(n) {
         var state = self.board[n[0]][n[1]];
-        if (state !== Board.EMPTY && state !== color) {
+        if (state !== board.EMPTY && state !== color) {
             var group = self.get_group(n[0], n[1]);
             if (group['liberties'] === 0) captured.push(group);
             else if (group['liberties'] === 1) atari = true;
@@ -58,14 +56,14 @@ Board.prototype.play = function(i, j) {
 
     // detect suicide
     if (isEmpty(captured) && this.get_group(i, j)['liberties'] === 0) {
-        this.board[i][j] = Board.EMPTY;
+        this.board[i][j] = board.EMPTY;
         $(this).trigger('suicide');
         return;
     }
 
     each(captured, function(group) {
         each(group['stones'], function(stone) {
-            self.board[stone[0]][stone[1]] = Board.EMPTY;
+            self.board[stone[0]][stone[1]] = board.EMPTY;
         });
     });
 
@@ -88,7 +86,7 @@ Board.prototype.get_adjacent_intersections = function(i, j) {
 
 Board.prototype.get_group = function(i, j) {
     var color = this.board[i][j];
-    if (color === Board.EMPTY) return null;
+    if (color === board.EMPTY) return null;
 
     var visited = {}; // for O(1) lookups
     var visited_list = []; // for returning
@@ -103,7 +101,7 @@ Board.prototype.get_group = function(i, j) {
         var self = this;
         each(neighbors, function(n) {
             var state = self.board[n[0]][n[1]];
-            if (state === Board.EMPTY) count++;
+            if (state === board.EMPTY) count++;
             if (state === color) queue.push([n[0], n[1]]);
         });
 

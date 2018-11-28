@@ -5,10 +5,12 @@ import './style.css';
 import * as serviceWorker from './serviceWorker';
 
 import { Board } from './board';
-import ContainerView from './go';
+import App from './App';
+
+const board = new Board(9);
 
 ReactDOM.render(
-    <ContainerView board={new Board(9)} />,
+    <App board={board} />,
     document.getElementById('root'),
 );
 

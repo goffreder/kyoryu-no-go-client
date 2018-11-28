@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-class App extends Component {
-    render() {
+import Board from './components/Board';
+import BoardMessage from './components/BoardMessage';
+import PassButton from './components/PassButton';
+
+export default class extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            board: props.board,
+        };
+    }
+    onBoardUpdate = () => {
+        this.setState({ board: this.props.board });
+    };
+    render = function() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
+            <div>
+                <BoardMessage board={this.state.board} />
+                <PassButton board={this.state.board} />
+                <Board
+                    board={this.state.board}
+                    onPlay={this.onBoardUpdate.bind(this)}
+                />
             </div>
         );
-    }
+    };
 }
-
-export default App;
