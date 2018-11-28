@@ -5,7 +5,7 @@ import './style.css';
 import * as serviceWorker from './serviceWorker';
 
 import { Board } from './board';
-import App from './App';
+import App from './components/App';
 
 const board = new Board(9);
 

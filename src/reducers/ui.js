@@ -11,6 +11,8 @@ const reducer = {
     }
 };
 
+export const getMessage = state => state.message;
+
 export default (state = defaultState, action = {}) => {
     if (typeof reducer[action.type] === 'undefined') {
         return state;
