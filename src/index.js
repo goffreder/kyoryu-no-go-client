@@ -3,14 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './style.css';
 import * as serviceWorker from './serviceWorker';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { logger } from 'redux-logger';
 
 import { Board } from './board';
 import App from './components/App';
 
+import reducers from './reducers';
+
 const board = new Board(9);
 
+const store = createStore(reducers, applyMiddleware(logger));
+
 ReactDOM.render(
-    <App board={board} />,
+    <Provider store={store}>
+        <App board={board} />
+    </Provider>,
     document.getElementById('root'),
 );
 

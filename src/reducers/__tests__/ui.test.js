@@ -17,6 +17,10 @@ describe('ui reducer', () => {
 
 describe('ui selectors', () => {
     it('should get the board message', () => {
-        expect(ui.getMessage(reducer(ui.defaultState, actions.setMessage('ATARI!')))).toEqual('ATARI!');
+        expect(
+            ui.getMessage(
+                reducer(ui.defaultState, actions.setMessage('ATARI!')),
+            ),
+        ).toEqual('ATARI!');
     });
 });

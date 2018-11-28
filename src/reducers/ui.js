@@ -8,7 +8,7 @@ const reducer = {
             ...state,
             message: payload,
         };
-    }
+    },
 };
 
 export const getMessage = state => state.message;

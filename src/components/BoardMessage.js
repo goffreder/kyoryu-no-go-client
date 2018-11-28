@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import $ from 'jquery';
 
-export default class extends Component {
+class BoardMessage extends Component {
     constructor(props) {
         super(props);
 
@@ -25,3 +26,12 @@ export default class extends Component {
         return <div id="alerts">{this.state.text}</div>;
     };
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(BoardMessage);

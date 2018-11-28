@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Board from './components/Board';
-import BoardMessage from './components/BoardMessage';
-import PassButton from './components/PassButton';
+import Board from './Board';
+import BoardMessage from './BoardMessage';
+import PassButton from './PassButton';
 
 export default class extends Component {
     constructor(props) {
