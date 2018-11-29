@@ -1,5 +1,4 @@
 import reducer, * as ui from '../ui';
-
 import * as actions from '../../actions/ui';
 
 describe('ui reducer', () => {
