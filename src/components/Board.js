@@ -37,7 +37,7 @@ class Board extends Component {
 }
 
 const mapStateToProps = state => ({
-    board: getBoard(state),
+    board: getBoard(state.board),
 });
 
 const mapDispatchToProps = dispatch => ({});

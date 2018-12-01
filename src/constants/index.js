@@ -7,3 +7,9 @@ export const board = {
     BLACK: 1,
     WHITE: 2,
 };
+
+export const msg = {
+    ATARI: 'ATARI!',
+    SUICIDE: 'SUICIDE!',
+    GAME_OVER: 'GAME OVER!',
+};

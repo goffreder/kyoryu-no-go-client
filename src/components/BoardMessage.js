@@ -10,7 +10,7 @@ class BoardMessage extends Component {
 }
 
 const mapStateToProps = state => ({
-    text: getBoardMessage(state),
+    text: getBoardMessage(state.board),
 });
 
 const mapDispatchToProps = dispatch => ({});

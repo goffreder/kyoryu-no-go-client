@@ -1,6 +1,6 @@
 import isEmpty from 'lodash/isEmpty';
 
-import { board as constants } from '../constants';
+import { board as constants, msg } from '../constants';
 
 export const defaultState = {
     board: null,
@@ -96,19 +96,19 @@ const reducer = {
     },
 };
 
-export const getBoard = state => state.board.board;
+export const getBoard = state => state.board;
 
 export const getBoardMessage = state => {
-    if (state.board.gameOver) {
-        return 'GAME OVER!';
+    if (state.gameOver) {
+        return msg.GAME_OVER;
     }
 
-    if (state.board.suicide) {
-        return 'SUICIDE!';
+    if (state.suicide) {
+        return msg.SUICIDE;
     }
 
-    if (state.board.atari) {
-        return 'ATARI!';
+    if (state.atari) {
+        return msg.ATARI;
     }
 
     return '';

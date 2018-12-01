@@ -1,6 +1,6 @@
 import reducer, * as selectors from '../board';
 import * as actions from '../../actions/board';
-import { board as constants } from '../../constants';
+import { board as constants, msg } from '../../constants';
 
 const { defaultState } = selectors;
 
@@ -307,5 +307,24 @@ describe('board selectors', () => {
             .toEqual(expect.arrayContaining([[1, 0]]))
             .toHaveLength(1);
         expect(group.liberties).toEqual(2);
+    });
+
+    it('should return the correct message', () => {
+        expect(selectors.getBoardMessage(defaultState)).toEqual('');
+
+        expect(selectors.getBoardMessage({
+            ...defaultState,
+            gameOver: true,
+        })).toEqual(msg.GAME_OVER);
+
+        expect(selectors.getBoardMessage({
+            ...defaultState,
+            suicide: true,
+        })).toEqual(msg.SUICIDE);
+
+        expect(selectors.getBoardMessage({
+            ...defaultState,
+            atari: true,
+        })).toEqual(msg.ATARI);
     });
 });
