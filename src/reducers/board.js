@@ -96,6 +96,24 @@ const reducer = {
     },
 };
 
+export const getBoard = state => state.board.board;
+
+export const getBoardMessage = state => {
+    if (state.board.gameOver) {
+        return 'GAME OVER!';
+    }
+
+    if (state.board.suicide) {
+        return 'SUICIDE!';
+    }
+
+    if (state.board.atari) {
+        return 'ATARI!';
+    }
+
+    return '';
+}
+
 const setBoardCell = (board, row, col, color) => {
     const newRow = [
         ...board[row].slice(0, col),

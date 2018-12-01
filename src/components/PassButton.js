@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class extends Component {
+import { pass } from '../actions/board';
+
+class PassButton extends Component {
     handleClick = () => {
-        this.props.board.pass();
+        this.props.pass();
     };
     render = function() {
         return (
@@ -15,3 +18,11 @@ export default class extends Component {
         );
     };
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+    pass: () => dispatch(pass()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PassButton);

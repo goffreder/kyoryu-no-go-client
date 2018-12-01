@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { initBoard } from '../actions/board';
 
 import Board from './Board';
 import BoardMessage from './BoardMessage';
 import PassButton from './PassButton';
 
-export default class extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            board: props.board,
-        };
+class App extends Component {
+    componentDidMount() {
+        this.props.initBoard(this.props.size);
     }
-    onBoardUpdate = () => {
-        this.setState({ board: this.props.board });
-    };
+
     render = function() {
         return (
             <div>
-                <BoardMessage board={this.state.board} />
-                <PassButton board={this.state.board} />
-                <Board
-                    board={this.state.board}
-                    onPlay={this.onBoardUpdate.bind(this)}
-                />
+                <BoardMessage />
+                <PassButton />
+                <Board />
             </div>
         );
     };
 }
+
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+    initBoard: (size) => dispatch(initBoard(size)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

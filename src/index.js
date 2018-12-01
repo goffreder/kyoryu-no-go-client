@@ -7,18 +7,15 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { logger } from 'redux-logger';
 
-import { Board } from './board';
 import App from './components/App';
 
 import reducers from './reducers';
-
-const board = new Board(9);
 
 const store = createStore(reducers, applyMiddleware(logger));
 
 ReactDOM.render(
     <Provider store={store}>
-        <App board={board} />
+        <App size={9} />
     </Provider>,
     document.getElementById('root'),
 );

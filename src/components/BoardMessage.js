@@ -1,33 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import $ from 'jquery';
+
+import { getBoardMessage } from '../reducers/board';
 
 class BoardMessage extends Component {
-    constructor(props) {
-        super(props);
-
-        var self = this;
-        $(props.board).on('atari', function(e) {
-            self.setState({ text: 'ATARI!' });
-        });
-        $(props.board).on('suicide', function(e) {
-            self.setState({ text: 'SUICIDE!' });
-        });
-        $(props.board).on('update', function(e) {
-            self.setState({ text: null });
-        });
-
-        this.state = {
-            text: null,
-        };
-    }
-
     render = function() {
-        return <div id="alerts">{this.state.text}</div>;
+        return <div id="alerts">{this.props.text}</div>;
     };
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    text: getBoardMessage(state),
+});
 
 const mapDispatchToProps = dispatch => ({});
 

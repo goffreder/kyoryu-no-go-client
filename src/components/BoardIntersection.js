@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { play } from '../actions/board';
 
 import { ui, board } from '../constants';
 
-export default class extends Component {
+class BoardIntersection extends Component {
     handleClick = () => {
-        this.props.board.play(this.props.row, this.props.col);
+        this.props.play(this.props.row, this.props.col);
     };
     render = function() {
         var style = {
@@ -21,3 +24,14 @@ export default class extends Component {
         );
     };
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+    play: (row, col) => dispatch(play(row, col)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(BoardIntersection);
