@@ -31,6 +31,8 @@
   ],
   "devDependencies": {
     "jest-chain": "^1.0.5",
-    "prettier": "^1.15.2"
+    "jest-dom": "^2.1.1",
+    "prettier": "^1.15.2",
+    "react-testing-library": "^5.3.1"
   }
 }

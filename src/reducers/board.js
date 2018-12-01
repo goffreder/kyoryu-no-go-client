@@ -34,7 +34,12 @@ const reducer = {
             return state;
         }
 
-        let newBoard = setBoardCell(state.board, row, col, color || state.color);
+        let newBoard = setBoardCell(
+            state.board,
+            row,
+            col,
+            color || state.color,
+        );
 
         let neighbors = getAdjacentIntersections(state.board, row, col);
         let captured = [];
@@ -64,9 +69,9 @@ const reducer = {
         }
 
         captured.forEach(group => {
-            group.stones.forEach(([ row, col ]) => {
+            group.stones.forEach(([row, col]) => {
                 newBoard = setBoardCell(newBoard, row, col, constants.EMPTY);
-            })
+            });
         });
 
         const newColor =
@@ -112,7 +117,7 @@ export const getBoardMessage = state => {
     }
 
     return '';
-}
+};
 
 const setBoardCell = (board, row, col, color) => {
     const newRow = [
@@ -185,7 +190,7 @@ export const getGroup = (board, i, j) => {
 
     return {
         stones: visitedList,
-        liberties
+        liberties,
     };
 };
 

@@ -4,10 +4,10 @@ import { func } from 'prop-types';
 
 import { pass } from '../actions/board';
 
-class PassButton extends Component {
+export class PassButton extends Component {
     static propTypes = {
-        pass: func.isRequired
-    }
+        pass: func.isRequired,
+    };
 
     handleClick = () => {
         this.props.pass();
@@ -15,20 +15,14 @@ class PassButton extends Component {
 
     render = function() {
         return (
-            <input
-                id="pass-btn"
-                type="button"
-                value="Pass"
-                onClick={this.handleClick}
-            />
+            <button id="pass-btn" onClick={this.handleClick}>
+                {'Pass'}
+            </button>
         );
     };
 }
 
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = dispatch => ({
-    pass: () => dispatch(pass()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PassButton);
+export default connect(
+    state => ({}),
+    { pass },
+)(PassButton);

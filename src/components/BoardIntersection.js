@@ -9,7 +9,7 @@ import { ui, board } from '../constants';
 class BoardIntersection extends Component {
     static propTypes = {
         play: func.isRequired,
-    }
+    };
 
     handleClick = () => {
         this.props.play(this.props.row, this.props.col);

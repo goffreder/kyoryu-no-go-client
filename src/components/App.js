@@ -15,7 +15,7 @@ class App extends Component {
 
     static propTypes = {
         initBoard: func.isRequired,
-    }
+    };
 
     render = function() {
         return (
@@ -28,10 +28,13 @@ class App extends Component {
     };
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = state => ({});
 
-const mapDispatchToProps = (dispatch) => ({
-    initBoard: (size) => dispatch(initBoard(size)),
+const mapDispatchToProps = dispatch => ({
+    initBoard: size => dispatch(initBoard(size)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(App);

@@ -9,7 +9,7 @@ import BoardIntersection from './BoardIntersection';
 class Board extends Component {
     static propTypes = {
         board: arrayOf(arrayOf(oneOf([board.EMPTY, board.BLACK, board.WHITE]))),
-    }
+    };
 
     render() {
         if (this.props.board === null) {
@@ -38,7 +38,7 @@ class Board extends Component {
                 {intersections}
             </div>
         );
-    };
+    }
 }
 
 const mapStateToProps = state => ({

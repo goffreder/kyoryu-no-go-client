@@ -257,6 +257,22 @@ describe('board reducer', () => {
 });
 
 describe('board selectors', () => {
+    it('should get the board', () => {
+        const board = [
+            [constants.EMPTY, constants.WHITE, constants.EMPTY],
+            [constants.BLACK, constants.WHITE, constants.EMPTY],
+            [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+        ];
+
+        expect(selectors.getBoard({
+            ...defaultState,
+            board
+        })).toEqual([
+            [constants.EMPTY, constants.WHITE, constants.EMPTY],
+            [constants.BLACK, constants.WHITE, constants.EMPTY],
+            [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+        ]);
+    });
     it('should get the adjacent intersections for a given cell', () => {
         const board = [
             [constants.EMPTY, constants.EMPTY, constants.EMPTY],
@@ -312,19 +328,25 @@ describe('board selectors', () => {
     it('should return the correct message', () => {
         expect(selectors.getBoardMessage(defaultState)).toEqual('');
 
-        expect(selectors.getBoardMessage({
-            ...defaultState,
-            gameOver: true,
-        })).toEqual(msg.GAME_OVER);
+        expect(
+            selectors.getBoardMessage({
+                ...defaultState,
+                gameOver: true,
+            }),
+        ).toEqual(msg.GAME_OVER);
 
-        expect(selectors.getBoardMessage({
-            ...defaultState,
-            suicide: true,
-        })).toEqual(msg.SUICIDE);
+        expect(
+            selectors.getBoardMessage({
+                ...defaultState,
+                suicide: true,
+            }),
+        ).toEqual(msg.SUICIDE);
 
-        expect(selectors.getBoardMessage({
-            ...defaultState,
-            atari: true,
-        })).toEqual(msg.ATARI);
+        expect(
+            selectors.getBoardMessage({
+                ...defaultState,
+                atari: true,
+            }),
+        ).toEqual(msg.ATARI);
     });
 });
