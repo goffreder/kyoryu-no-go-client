@@ -12,23 +12,29 @@ describe('board action creators', () => {
     });
 
     it('should create an action to make a play for the current active color', () => {
-        const row = 0, col = 0;
+        const row = 0,
+            col = 0;
 
         expect(actions.play(row, col)).toEqual({
             type: 'PLAY',
             payload: {
-                row, col,
+                row,
+                col,
             },
         });
     });
 
     it('should create an action to make a play for a specified color', () => {
-        const row = 0, col = 0, color = board.BLACK;
+        const row = 0,
+            col = 0,
+            color = board.BLACK;
 
         expect(actions.play(row, col, color)).toEqual({
             type: 'PLAY',
             payload: {
-                row, col, color
+                row,
+                col,
+                color,
             },
         });
     });
@@ -49,7 +55,7 @@ describe('board action creators', () => {
 
     it('should create an action to pass the play', () => {
         expect(actions.pass()).toEqual({
-            type: 'PASS'
+            type: 'PASS',
         });
     });
 });
