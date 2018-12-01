@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { arrayOf, oneOf } from 'prop-types';
 
 import { getBoard } from '../reducers/board';
-import { ui } from '../constants';
+import { ui, board } from '../constants';
 import BoardIntersection from './BoardIntersection';
 
 class Board extends Component {
-    render = function() {
+    static propTypes = {
+        board: arrayOf(arrayOf(oneOf([board.EMPTY, board.BLACK, board.WHITE]))),
+    }
+
+    render() {
         if (this.props.board === null) {
             return null;
         }

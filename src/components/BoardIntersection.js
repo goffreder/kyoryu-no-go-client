@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { func } from 'prop-types';
 
 import { play } from '../actions/board';
 
 import { ui, board } from '../constants';
 
 class BoardIntersection extends Component {
+    static propTypes = {
+        play: func.isRequired,
+    }
+
     handleClick = () => {
         this.props.play(this.props.row, this.props.col);
     };
+
     render = function() {
         var style = {
             top: this.props.row * ui.GRID_SIZE,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { func } from 'prop-types';
 
 import { initBoard } from '../actions/board';
 
@@ -10,6 +11,10 @@ import PassButton from './PassButton';
 class App extends Component {
     componentDidMount() {
         this.props.initBoard(this.props.size);
+    }
+
+    static propTypes = {
+        initBoard: func.isRequired,
     }
 
     render = function() {

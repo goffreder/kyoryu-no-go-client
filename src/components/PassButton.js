@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { func } from 'prop-types';
 
 import { pass } from '../actions/board';
 
 class PassButton extends Component {
+    static propTypes = {
+        pass: func.isRequired
+    }
+
     handleClick = () => {
         this.props.pass();
     };
+
     render = function() {
         return (
             <input
