@@ -264,10 +264,12 @@ describe('board selectors', () => {
             [constants.EMPTY, constants.EMPTY, constants.EMPTY],
         ];
 
-        expect(selectors.getBoard({
-            ...defaultState,
-            board
-        })).toEqual([
+        expect(
+            selectors.getBoard({
+                ...defaultState,
+                board,
+            }),
+        ).toEqual([
             [constants.EMPTY, constants.WHITE, constants.EMPTY],
             [constants.BLACK, constants.WHITE, constants.EMPTY],
             [constants.EMPTY, constants.EMPTY, constants.EMPTY],

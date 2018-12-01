@@ -5,7 +5,7 @@ import { oneOf } from 'prop-types';
 import { getBoardMessage } from '../reducers/board';
 import { msg } from '../constants';
 
-class BoardMessage extends Component {
+export class BoardMessage extends Component {
     static propTypes = {
         text: oneOf(['', msg.GAME_OVER, msg.SUICIDE, msg.ATARI]).isRequired,
     };
@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
     text: getBoardMessage(state.board),
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = {};
 
 export default connect(
     mapStateToProps,

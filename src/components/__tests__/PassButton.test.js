@@ -34,7 +34,7 @@ describe('PassButton component', () => {
         expect(getByText('Pass')).toBeInTheDocument();
     });
 
-    it('should use the correct selectors and action creators', () => {
+    it('should use the correct action creators', () => {
         expect(mapDispatchToProps).toEqual({ pass });
     });
 });

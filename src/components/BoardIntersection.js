@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { func } from 'prop-types';
+import { func, number, oneOf } from 'prop-types';
 
 import { play } from '../actions/board';
 
 import { ui, board } from '../constants';
 
-class BoardIntersection extends Component {
+export class BoardIntersection extends Component {
     static propTypes = {
+        row: number.isRequired,
+        col: number.isRequired,
+        color: oneOf([board.EMPTY, board.BLACK, board.WHITE]),
         play: func.isRequired,
+    };
+
+    static defaultProps = {
+        color: board.EMPTY,
     };
 
     handleClick = () => {
@@ -33,9 +40,9 @@ class BoardIntersection extends Component {
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({
-    play: (row, col) => dispatch(play(row, col)),
-});
+export const mapDispatchToProps = {
+    play,
+};
 
 export default connect(
     mapStateToProps,

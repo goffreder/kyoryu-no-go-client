@@ -22,11 +22,13 @@ export class PassButton extends Component {
     };
 }
 
+const mapStateToProps = state => ({});
+
 export const mapDispatchToProps = {
-    pass
+    pass,
 };
 
 export default connect(
-    state => ({}),
+    mapStateToProps,
     mapDispatchToProps,
 )(PassButton);
