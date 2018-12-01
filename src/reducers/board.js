@@ -3,7 +3,7 @@ import isEmpty from 'lodash/isEmpty';
 import { board as constants, msg } from '../constants';
 
 export const defaultState = {
-    board: null,
+    board: [],
     color: constants.BLACK,
     atari: false,
     suicide: false,

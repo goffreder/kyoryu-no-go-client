@@ -6,13 +6,17 @@ import { getBoard } from '../reducers/board';
 import { ui, board } from '../constants';
 import BoardIntersection from './BoardIntersection';
 
-class Board extends Component {
+export class Board extends Component {
     static propTypes = {
         board: arrayOf(arrayOf(oneOf([board.EMPTY, board.BLACK, board.WHITE]))),
     };
 
+    static defaultProps = {
+        board: [],
+    };
+
     render() {
-        if (this.props.board === null) {
+        if (this.props.board.length === 0) {
             return null;
         }
 

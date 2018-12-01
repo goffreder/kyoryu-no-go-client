@@ -30,9 +30,9 @@ class App extends Component {
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({
-    initBoard: size => dispatch(initBoard(size)),
-});
+export const mapDispatchToProps = {
+    initBoard,
+};
 
 export default connect(
     mapStateToProps,
