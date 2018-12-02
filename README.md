@@ -8,4 +8,4 @@ Credits to:
 
 ## TODO
 - [ ] Fix percentile box-shadow for stones (either we use `react-dimensions` - which is unmaintained - and we fail the relevant test, or we use a fixed width and we lose in responsiveness)
-- [ ] Fix calculation for stars (19x19 looks good, 9x9 doesn't)
+- [ ] Check react render performances

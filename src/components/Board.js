@@ -23,6 +23,8 @@ export class Board extends Component {
         }
 
         const width = 100 / size;
+        const starPoints =
+            size <= 9 ? [2, size - 3] : [3, size - 4, (size - 1) / 2];
 
         return (
             <div className="row" id="board">
@@ -51,12 +53,8 @@ export class Board extends Component {
                                     isBottomEdge={i === size - 1}
                                     isLeftEdge={j === 0}
                                     isStarPoint={
-                                        [3, size - 4, (size - 1) / 2].indexOf(
-                                            i,
-                                        ) >= 0 &&
-                                        [3, size - 4, (size - 1) / 2].indexOf(
-                                            j,
-                                        ) >= 0
+                                        starPoints.indexOf(i) >= 0 &&
+                                        starPoints.indexOf(j) >= 0
                                     }
                                 />
                             ))}
