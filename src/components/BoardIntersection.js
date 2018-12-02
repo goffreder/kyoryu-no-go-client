@@ -4,7 +4,7 @@ import { func, number, oneOf } from 'prop-types';
 
 import { play } from '../actions/board';
 import Stone from './Stone';
-import { ui, board } from '../constants';
+import { board } from '../constants';
 
 export class BoardIntersection extends Component {
     static propTypes = {
@@ -33,9 +33,10 @@ export class BoardIntersection extends Component {
                     textAlign: 'center',
                     width: this.props.width + '%',
                 }}
+                className="intersection"
+                onClick={this.handleClick}
             >
                 <div
-                    onClick={this.handleClick}
                     style={{
                         cursor:
                             this.props.color === board.EMPTY

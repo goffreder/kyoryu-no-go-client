@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { arrayOf, oneOf } from 'prop-types';
 
 import { getBoard } from '../reducers/board';
-import { ui, board } from '../constants';
+import { board } from '../constants';
 import BoardIntersection from './BoardIntersection';
 
 export class Board extends Component {
@@ -25,7 +25,7 @@ export class Board extends Component {
         const width = 100 / size;
 
         return (
-            <div className="row">
+            <div className="row" id="board">
                 <div
                     className="card col s12 m8 push-m2 l6 push-l3"
                     style={{
@@ -65,29 +65,6 @@ export class Board extends Component {
                 </div>
             </div>
         );
-
-        // const size = this.props.board.length;
-        // let intersections = [];
-        //
-        // for (let i = 0; i < size; i++)
-        //     for (let j = 0; j < size; j++)
-        //         intersections.push(
-        //             <BoardIntersection
-        //                 key={`${i}, ${j}`}
-        //                 color={this.props.board[i][j]}
-        //                 row={i}
-        //                 col={j}
-        //             />,
-        //         );
-        // const style = {
-        //     width: size * ui.GRID_SIZE,
-        //     height: size * ui.GRID_SIZE,
-        // };
-        // return (
-        //     <div style={style} id="board">
-        //         {intersections}
-        //     </div>
-        // );
     }
 }
 

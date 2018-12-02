@@ -36,14 +36,14 @@ describe('Board component', () => {
         const boardNode = container.querySelector('#board');
 
         expect(boardNode).toBeInTheDocument();
-        expect(boardNode.querySelectorAll('div.intersection').length).toEqual(
+        expect(boardNode.querySelectorAll('.intersection').length).toEqual(
             9,
         );
         expect(
-            boardNode.querySelectorAll('div.intersection.black').length,
+            boardNode.querySelectorAll('.intersection .stone.stone-black').length,
         ).toEqual(3);
         expect(
-            boardNode.querySelectorAll('div.intersection.white').length,
+            boardNode.querySelectorAll('.intersection .stone.stone-white').length,
         ).toEqual(1);
     });
 });

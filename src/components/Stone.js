@@ -11,37 +11,26 @@ class Stone extends Component {
     };
 
     render() {
-        const w = this.props.containerWidth;
+        const w = this.props.containerWidth || 20;
+
+        const boxShadow = [
+            this.props.color === constants.BLACK
+                ? `inset 0 ${w / 6}px ${w / 3}px 0 rgba(255, 255, 255, .2)`
+                : `inset 0 ${-w / 6}px ${w / 3}px 0 rgba(0, 0, 0, .16)`,
+            `0 ${w / 12}px ${w / 6}px 0 rgba(0, 0, 0, .16)`,
+            `0 ${w / 12}px ${w / 4}px 0 rgba(0, 0, 0, .12)`
+        ];
+
         return (
             <div
+                className={classNames('stone', this.props.color === constants.BLACK ? 'stone-black' : 'stone-white')}
                 style={{
                     background:
                         this.props.color === constants.BLACK
                             ? '#101015'
                             : '#EEEEF0',
                     borderRadius: 9001,
-                    boxShadow:
-                        (this.props.color === constants.BLACK
-                            ? 'inset 0 ' +
-                              w / 6 +
-                              'px ' +
-                              w / 3 +
-                              'px 0 rgba(255,255,255,.2),'
-                            : 'inset 0 ' +
-                              -w / 6 +
-                              'px ' +
-                              w / 3 +
-                              'px 0 rgba(0,0,0,.16),') +
-                        '0 ' +
-                        w / 12 +
-                        'px ' +
-                        w / 6 +
-                        'px 0 rgba(0,0,0,.16),' +
-                        '0 ' +
-                        w / 12 +
-                        'px ' +
-                        w / 4 +
-                        'px 0 rgba(0,0,0,.12)',
+                    boxShadow,
                     position: 'absolute',
                     top: '5%',
                     right: '5%',
@@ -53,4 +42,5 @@ class Stone extends Component {
     }
 }
 
-export default Dimensions()(Stone);
+// export default Dimensions()(Stone);
+export default Stone;
