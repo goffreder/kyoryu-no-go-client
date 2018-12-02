@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { func, number, oneOf } from 'prop-types';
 
 import { play } from '../actions/board';
-
+import Stone from './Stone';
 import { ui, board } from '../constants';
 
 export class BoardIntersection extends Component {
@@ -22,20 +22,75 @@ export class BoardIntersection extends Component {
         this.props.play(this.props.row, this.props.col);
     };
 
-    render = function() {
-        var style = {
-            top: this.props.row * ui.GRID_SIZE,
-            left: this.props.col * ui.GRID_SIZE,
-        };
-
-        var classes = 'intersection';
-        if (this.props.color !== board.EMPTY)
-            classes += this.props.color === board.BLACK ? ' black' : ' white';
-
+    render() {
         return (
-            <div onClick={this.handleClick} className={classes} style={style} />
+            <div
+                style={{
+                    float: 'left',
+                    lineHeight: '1',
+                    paddingTop: this.props.width + '%',
+                    position: 'relative',
+                    textAlign: 'center',
+                    width: this.props.width + '%',
+                }}
+            >
+                <div
+                    onClick={this.handleClick}
+                    style={{
+                        cursor:
+                            this.props.color === board.EMPTY
+                                ? 'pointer'
+                                : 'auto',
+                        position: 'absolute',
+                        top: 0,
+                        right: 0,
+                        bottom: 0,
+                        left: 0,
+                    }}
+                >
+                    {this.props.isStarPoint ? (
+                        <div
+                            style={{
+                                background: '#63380E',
+                                borderRadius: 9000,
+                                height: 6,
+                                position: 'absolute',
+                                left: '50%',
+                                top: '50%',
+                                transform: 'translate(-50%, -50%)',
+                                width: 6,
+                            }}
+                        />
+                    ) : null}
+                    <div
+                        style={{
+                            background: '#63380E',
+                            height: '1px',
+                            position: 'absolute',
+                            top: '50%',
+                            right: this.props.isRightEdge ? '50%' : 0,
+                            left: this.props.isLeftEdge ? '50%' : 0,
+                            transform: 'translateY(-50%)',
+                        }}
+                    />
+                    <div
+                        style={{
+                            background: '#63380E',
+                            position: 'absolute',
+                            left: '50%',
+                            top: this.props.isTopEdge ? '50%' : 0,
+                            bottom: this.props.isBottomEdge ? '50%' : 0,
+                            transform: 'translateX(-50%)',
+                            width: '1px',
+                        }}
+                    />
+                    {this.props.color !== board.EMPTY ? (
+                        <Stone color={this.props.color} />
+                    ) : null}
+                </div>
+            </div>
         );
-    };
+    }
 }
 
 const mapStateToProps = state => ({});

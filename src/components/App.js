@@ -19,10 +19,23 @@ class App extends Component {
 
     render = function() {
         return (
-            <div>
-                <BoardMessage />
-                <PassButton />
-                <Board />
+            <div id="app">
+                <div className="container">
+                    <Board />
+                </div>
+
+                <div
+                    className="page-footer blue-grey darken-2"
+                    style={{
+                        marginTop: 20,
+                        padding: 20,
+                    }}
+                >
+                    <div className="container">
+                        <BoardMessage />
+                        <PassButton />
+                    </div>
+                </div>
             </div>
         );
     };
