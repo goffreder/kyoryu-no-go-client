@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { oneOf } from 'prop-types';
 import classNames from 'classnames';
-import Dimensions from 'react-dimensions';
+// import Dimensions from 'react-dimensions';
 
 import { board as constants } from '../constants';
 
@@ -18,12 +18,17 @@ class Stone extends Component {
                 ? `inset 0 ${w / 6}px ${w / 3}px 0 rgba(255, 255, 255, .2)`
                 : `inset 0 ${-w / 6}px ${w / 3}px 0 rgba(0, 0, 0, .16)`,
             `0 ${w / 12}px ${w / 6}px 0 rgba(0, 0, 0, .16)`,
-            `0 ${w / 12}px ${w / 4}px 0 rgba(0, 0, 0, .12)`
+            `0 ${w / 12}px ${w / 4}px 0 rgba(0, 0, 0, .12)`,
         ];
 
         return (
             <div
-                className={classNames('stone', this.props.color === constants.BLACK ? 'stone-black' : 'stone-white')}
+                className={classNames(
+                    'stone',
+                    this.props.color === constants.BLACK
+                        ? 'stone-black'
+                        : 'stone-white',
+                )}
                 style={{
                     background:
                         this.props.color === constants.BLACK
