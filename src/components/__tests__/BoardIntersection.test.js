@@ -19,7 +19,7 @@ describe('BoardIntersection component', () => {
         expect(container.querySelector('div.intersection')).toBeInTheDocument();
     });
 
-    it('displays a black intersection', () => {
+    it('displays a black stone on an intersection', () => {
         const { container } = render(
             <BoardIntersection
                 row={0}
@@ -30,11 +30,11 @@ describe('BoardIntersection component', () => {
         );
 
         expect(
-            container.querySelector('div.intersection.black'),
+            container.querySelector('.intersection .stone.stone-black'),
         ).toBeInTheDocument();
     });
 
-    it('displays a white intersection', () => {
+    it('displays a white stone on an intersection', () => {
         const { container } = render(
             <BoardIntersection
                 row={0}
@@ -45,7 +45,7 @@ describe('BoardIntersection component', () => {
         );
 
         expect(
-            container.querySelector('div.intersection.white'),
+            container.querySelector('.intersection .stone.stone-white'),
         ).toBeInTheDocument();
     });
 
@@ -55,7 +55,7 @@ describe('BoardIntersection component', () => {
             <BoardIntersection row={0} col={0} play={play} />,
         );
 
-        fireEvent.click(container.querySelector('div.intersection'));
+        fireEvent.click(container.querySelector('.intersection'));
         expect(play).toHaveBeenCalled();
     });
 
@@ -66,7 +66,7 @@ describe('BoardIntersection component', () => {
             </Provider>,
         );
 
-        expect(container.querySelector('div.intersection')).toBeInTheDocument();
+        expect(container.querySelector('.intersection')).toBeInTheDocument();
     });
 
     it('should use the correct action creators', () => {
