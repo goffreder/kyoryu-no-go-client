@@ -25,12 +25,8 @@ const reducer = {
 
         if (
             state.board[row] === undefined ||
-            state.board[row][col] === undefined
+            state.board[row][col] !== constants.EMPTY
         ) {
-            return state;
-        }
-
-        if (state.board[row][col] !== constants.EMPTY) {
             return state;
         }
 

@@ -9,6 +9,12 @@ describe('board reducer', () => {
         expect(reducer()).toEqual(defaultState);
     });
 
+    it('should not end the game if the first player starts with a pass', () => {
+        const newState = reducer(defaultState, actions.pass());
+
+        expect(newState.gameOver).toEqual(false);
+    });
+
     it('should init the board', () => {
         const size = 2;
         const newState = reducer(defaultState, actions.initBoard(size));
@@ -83,9 +89,9 @@ describe('board reducer', () => {
                 [constants.EMPTY, constants.EMPTY],
             ],
         };
-        const newState = reducer(currentState, actions.play(-1, 2));
 
-        expect(newState).toEqual(currentState);
+        expect(reducer(currentState, actions.play(-1, 2))).toEqual(currentState);
+        expect(reducer(currentState, actions.play(2, -1))).toEqual(currentState);
     });
 
     it('should change the active color after a valid play', () => {
@@ -214,6 +220,10 @@ describe('board reducer', () => {
     it('should prevent a play when the game is over', () => {
         const currentState = {
             ...defaultState,
+            board: [
+                [constants.EMPTY, constants.EMPTY],
+                [constants.EMPTY, constants.EMPTY],
+            ],
             gameOver: true,
         };
         const newState = reducer(currentState, actions.play(0, 0));
@@ -253,6 +263,21 @@ describe('board reducer', () => {
         const newState = reducer(currentState, actions.play(1, 2));
 
         expect(newState.atari).toEqual(true);
+    });
+
+    it('should not set the atari flag for a non-atari play', () => {
+        const currentState = {
+            ...defaultState,
+            color: constants.BLACK,
+            board: [
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+                [constants.BLACK, constants.WHITE, constants.EMPTY],
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+            ],
+        };
+        const newState = reducer(currentState, actions.play(1, 2));
+
+        expect(newState.atari).toEqual(false);
     });
 });
 

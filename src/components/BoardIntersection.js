@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func, number, oneOf } from 'prop-types';
+import classNames from 'classnames';
 
 import { play } from '../actions/board';
 import Stone from './Stone';
@@ -33,7 +34,7 @@ export class BoardIntersection extends Component {
                     textAlign: 'center',
                     width: this.props.width + '%',
                 }}
-                className="intersection"
+                className={classNames('intersection', this.props.isStarPoint ? 'hoshi' : null)}
                 onClick={this.handleClick}
             >
                 <div
