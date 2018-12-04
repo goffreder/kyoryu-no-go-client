@@ -1,5 +1,7 @@
 # Kyoryu No Go - client
 
+[![Mutation testing badge](https://badge.stryker-mutator.io/github.com/goffreder/kyoryu-no-go-client/master)](https://stryker-mutator.github.io)
+
 A basic React/Redux implementation for the game of Go, and a good excuse to exercise with Firebase, sockets and tests (aiming for 100% coverage, yay!).
 
 Credits to:

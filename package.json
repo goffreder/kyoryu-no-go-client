@@ -20,6 +20,7 @@
     "test": "react-scripts test",
     "test:debug": "react-scripts --inspect-brk test --runInBand",
     "coverage": "yarn test --coverage --collectCoverageFrom=\"src/(actions|reducers|components)/**/*.{js,jsx,ts,tsx}\"",
+    "stryker:run": "STRYKER_DASHBOARD_API_KEY=2d778659-73d0-420a-849e-1eb832a60c9f yarn stryker run",
     "eject": "react-scripts eject",
     "prettier": "prettier --write --tab-width 4 --single-quote --trailing-comma all \"src/**/*.+(js|jsx)\""
   },
@@ -37,6 +38,12 @@
     "jest-dom": "^2.1.1",
     "node-sass": "^4.10.0",
     "prettier": "^1.15.2",
-    "react-testing-library": "^5.3.1"
+    "react-testing-library": "^5.3.1",
+    "stryker": "^0.33.1",
+    "stryker-api": "^0.22.0",
+    "stryker-cli": "^0.2.0",
+    "stryker-html-reporter": "^0.16.9",
+    "stryker-javascript-mutator": "^0.12.1",
+    "stryker-jest-runner": "^1.2.9"
   }
 }
