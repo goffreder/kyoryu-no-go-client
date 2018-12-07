@@ -19,6 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:debug": "react-scripts --inspect-brk test --runInBand",
+    "test:ci": "CI=true react-scripts test --env=jsdom && cat pika.txt",
     "coverage": "yarn test --coverage --collectCoverageFrom=\"src/(actions|reducers|components)/**/*.{js,jsx,ts,tsx}\"",
     "stryker:run": "STRYKER_DASHBOARD_API_KEY=2d778659-73d0-420a-849e-1eb832a60c9f yarn stryker run",
     "eject": "react-scripts eject",
