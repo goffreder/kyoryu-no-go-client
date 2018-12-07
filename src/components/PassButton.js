@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func } from 'prop-types';
+import 'materialize-css';
 
 import { pass } from '../actions/board';
 
@@ -15,7 +16,11 @@ export class PassButton extends Component {
 
     render = function() {
         return (
-            <button id="pass-btn" onClick={this.handleClick}>
+            <button
+                className="waves-effect waves-light btn blue-grey darken-4"
+                id="pass-btn"
+                onClick={this.handleClick}
+            >
                 {'Pass'}
             </button>
         );

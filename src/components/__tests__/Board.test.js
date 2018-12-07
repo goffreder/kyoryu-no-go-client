@@ -65,7 +65,9 @@ describe('Board component', () => {
         );
         const boardNode = container.querySelector('#board');
 
-        expect(boardNode.querySelectorAll('.intersection.hoshi').length).toEqual(4);
+        expect(
+            boardNode.querySelectorAll('.intersection.hoshi').length,
+        ).toEqual(4);
     });
 
     it('should display 9 hoshi for a 19x19 goban', () => {
@@ -86,6 +88,8 @@ describe('Board component', () => {
         );
         const boardNode = container.querySelector('#board');
 
-        expect(boardNode.querySelectorAll('.intersection.hoshi').length).toEqual(9);
+        expect(
+            boardNode.querySelectorAll('.intersection.hoshi').length,
+        ).toEqual(9);
     });
 });

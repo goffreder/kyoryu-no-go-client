@@ -90,8 +90,12 @@ describe('board reducer', () => {
             ],
         };
 
-        expect(reducer(currentState, actions.play(-1, 2))).toEqual(currentState);
-        expect(reducer(currentState, actions.play(2, -1))).toEqual(currentState);
+        expect(reducer(currentState, actions.play(-1, 2))).toEqual(
+            currentState,
+        );
+        expect(reducer(currentState, actions.play(2, -1))).toEqual(
+            currentState,
+        );
     });
 
     it('should change the active color after a valid play', () => {

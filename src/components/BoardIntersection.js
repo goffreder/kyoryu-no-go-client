@@ -34,7 +34,10 @@ export class BoardIntersection extends Component {
                     textAlign: 'center',
                     width: this.props.width + '%',
                 }}
-                className={classNames('intersection', this.props.isStarPoint ? 'hoshi' : null)}
+                className={classNames(
+                    'intersection',
+                    this.props.isStarPoint ? 'hoshi' : null,
+                )}
                 onClick={this.handleClick}
             >
                 <div

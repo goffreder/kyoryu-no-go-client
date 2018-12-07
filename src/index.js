@@ -16,7 +16,7 @@ const store = createStore(reducers, applyMiddleware(logger));
 
 ReactDOM.render(
     <Provider store={store}>
-        <App size={19} />
+        <App size={9} />
     </Provider>,
     document.getElementById('root'),
 );
