@@ -22,6 +22,14 @@ const reducer = {
             board: Array(payload).fill(Array(payload).fill(constants.EMPTY)),
         };
     },
+    RESET_BOARD: state => {
+        return {
+            ...defaultState,
+            board: Array(state.board.length).fill(
+                Array(state.board.length).fill(constants.EMPTY),
+            ),
+        };
+    },
     PLAY: (state, { payload: { row, col, color } }) => {
         if (state.gameOver) {
             return state;

@@ -8,6 +8,7 @@ import Board from './Board';
 import Captured from './Captured';
 import BoardMessage from './BoardMessage';
 import PassButton from './PassButton';
+import ResetButton from './ResetButton';
 
 class App extends Component {
     componentDidMount() {
@@ -40,7 +41,17 @@ class App extends Component {
                             alignItems: 'center',
                         }}
                     >
-                        <PassButton />
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: 100,
+                                justifyContent: 'space-evenly',
+                            }}
+                        >
+                            <PassButton />
+                            <ResetButton />
+                        </div>
                         <Captured />
                         <BoardMessage />
                     </div>
