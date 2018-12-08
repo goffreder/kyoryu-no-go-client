@@ -6,7 +6,7 @@ import Stone from './Stone';
 import { getCaptured } from '../reducers/board';
 import { board as constants } from '../constants';
 
-class Captured extends Component {
+export class Captured extends Component {
     static propTypes = {
         captured: shape({
             [constants.BLACK]: number.isRequired,
