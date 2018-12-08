@@ -1,0 +1,302 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoardIntersection component displays a star point intersection 1`] = `
+<div
+  className="intersection hoshi"
+  onClick={[Function]}
+  style={
+    Object {
+      "float": "left",
+      "lineHeight": "1",
+      "paddingTop": "100%",
+      "position": "relative",
+      "textAlign": "center",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "bottom": 0,
+        "cursor": "pointer",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "borderRadius": 9000,
+          "height": "20%",
+          "left": "50%",
+          "minHeight": 4,
+          "minWidth": 4,
+          "position": "absolute",
+          "top": "50%",
+          "transform": "translate(-50%, -50%)",
+          "width": "20%",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "height": "1px",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": "50%",
+          "transform": "translateY(-50%)",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "bottom": 0,
+          "left": "50%",
+          "position": "absolute",
+          "top": 0,
+          "transform": "translateX(-50%)",
+          "width": "1px",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`BoardIntersection component displays edges intersections 1`] = `
+<div
+  className="intersection"
+  onClick={[Function]}
+  style={
+    Object {
+      "float": "left",
+      "lineHeight": "1",
+      "paddingTop": "100%",
+      "position": "relative",
+      "textAlign": "center",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "bottom": 0,
+        "cursor": "pointer",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "height": "1px",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": "50%",
+          "transform": "translateY(-50%)",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "bottom": 0,
+          "left": "50%",
+          "position": "absolute",
+          "top": "50%",
+          "transform": "translateX(-50%)",
+          "width": "1px",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`BoardIntersection component displays edges intersections 2`] = `
+<div
+  className="intersection"
+  onClick={[Function]}
+  style={
+    Object {
+      "float": "left",
+      "lineHeight": "1",
+      "paddingTop": "100%",
+      "position": "relative",
+      "textAlign": "center",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "bottom": 0,
+        "cursor": "pointer",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "height": "1px",
+          "left": "50%",
+          "position": "absolute",
+          "right": 0,
+          "top": "50%",
+          "transform": "translateY(-50%)",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "bottom": 0,
+          "left": "50%",
+          "position": "absolute",
+          "top": 0,
+          "transform": "translateX(-50%)",
+          "width": "1px",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`BoardIntersection component displays edges intersections 3`] = `
+<div
+  className="intersection"
+  onClick={[Function]}
+  style={
+    Object {
+      "float": "left",
+      "lineHeight": "1",
+      "paddingTop": "100%",
+      "position": "relative",
+      "textAlign": "center",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "bottom": 0,
+        "cursor": "pointer",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "height": "1px",
+          "left": 0,
+          "position": "absolute",
+          "right": "50%",
+          "top": "50%",
+          "transform": "translateY(-50%)",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "bottom": 0,
+          "left": "50%",
+          "position": "absolute",
+          "top": 0,
+          "transform": "translateX(-50%)",
+          "width": "1px",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`BoardIntersection component displays edges intersections 4`] = `
+<div
+  className="intersection"
+  onClick={[Function]}
+  style={
+    Object {
+      "float": "left",
+      "lineHeight": "1",
+      "paddingTop": "100%",
+      "position": "relative",
+      "textAlign": "center",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "bottom": 0,
+        "cursor": "pointer",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "height": "1px",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": "50%",
+          "transform": "translateY(-50%)",
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#63380E",
+          "bottom": "50%",
+          "left": "50%",
+          "position": "absolute",
+          "top": 0,
+          "transform": "translateX(-50%)",
+          "width": "1px",
+        }
+      }
+    />
+  </div>
+</div>
+`;

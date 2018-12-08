@@ -1,13 +1,7 @@
 import React from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
 import { render, fireEvent } from 'react-testing-library';
-import reducers, { defaultState } from '../../reducers';
-import { play } from '../../actions/board';
-import ConnectedBoardIntersection, {
-    BoardIntersection,
-    mapDispatchToProps,
-} from '../BoardIntersection';
+import renderer from 'react-test-renderer';
+import BoardIntersection from '../BoardIntersection';
 import { board } from '../../constants';
 
 describe('BoardIntersection component', () => {
@@ -17,6 +11,72 @@ describe('BoardIntersection component', () => {
         );
 
         expect(container.querySelector('div.intersection')).toBeInTheDocument();
+    });
+
+    it('displays a star point intersection', () => {
+        expect(
+            renderer
+                .create(
+                    <BoardIntersection
+                        row={0}
+                        col={0}
+                        play={() => {}}
+                        isStarPoint
+                    />,
+                )
+                .toJSON(),
+        ).toMatchSnapshot();
+    });
+
+    it('displays edges intersections', () => {
+        expect(
+            renderer
+                .create(
+                    <BoardIntersection
+                        row={0}
+                        col={0}
+                        play={() => {}}
+                        isTopEdge
+                    />,
+                )
+                .toJSON(),
+        ).toMatchSnapshot();
+        expect(
+            renderer
+                .create(
+                    <BoardIntersection
+                        row={0}
+                        col={0}
+                        play={() => {}}
+                        isLeftEdge
+                    />,
+                )
+                .toJSON(),
+        ).toMatchSnapshot();
+        expect(
+            renderer
+                .create(
+                    <BoardIntersection
+                        row={0}
+                        col={0}
+                        play={() => {}}
+                        isRightEdge
+                    />,
+                )
+                .toJSON(),
+        ).toMatchSnapshot();
+        expect(
+            renderer
+                .create(
+                    <BoardIntersection
+                        row={0}
+                        col={0}
+                        play={() => {}}
+                        isBottomEdge
+                    />,
+                )
+                .toJSON(),
+        ).toMatchSnapshot();
     });
 
     it('displays a black stone on an intersection', () => {
@@ -59,17 +119,13 @@ describe('BoardIntersection component', () => {
         expect(play).toHaveBeenCalledTimes(1);
     });
 
-    it('displays an empty intersection with Redux', () => {
+    it('should not call "play" prop on readonly intersection click', () => {
+        const play = jest.fn();
         const { container } = render(
-            <Provider store={createStore(reducers, defaultState)}>
-                <ConnectedBoardIntersection row={0} col={0} />
-            </Provider>,
+            <BoardIntersection row={0} col={0} play={play} readonly />,
         );
 
-        expect(container.querySelector('.intersection')).toBeInTheDocument();
-    });
-
-    it('should use the correct action creators', () => {
-        expect(mapDispatchToProps).toEqual({ play });
+        fireEvent.click(container.querySelector('.intersection'));
+        expect(play).not.toHaveBeenCalled();
     });
 });

@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { func, number, oneOf } from 'prop-types';
+import { func, number, oneOf, bool } from 'prop-types';
 import classNames from 'classnames';
 
-import { play } from '../actions/board';
 import Stone from './Stone';
 import { board } from '../constants';
 
-export class BoardIntersection extends Component {
+export default class extends Component {
     static propTypes = {
         row: number.isRequired,
         col: number.isRequired,
         color: oneOf([board.EMPTY, board.BLACK, board.WHITE]),
-        play: func.isRequired,
+        play: func,
+        width: number,
+        isTopEdge: bool,
+        isRightEdge: bool,
+        isBottomEdge: bool,
+        isLeftEdge: bool,
+        isStarPoint: bool,
+        readonly: bool,
     };
 
     static defaultProps = {
         color: board.EMPTY,
+        width: 100,
+        readonly: false,
     };
 
     handleClick = () => {
-        this.props.play(this.props.row, this.props.col);
+        !this.props.readonly &&
+            this.props.play &&
+            this.props.play(this.props.row, this.props.col);
     };
 
     render() {
@@ -43,9 +52,10 @@ export class BoardIntersection extends Component {
                 <div
                     style={{
                         cursor:
-                            this.props.color === board.EMPTY
-                                ? 'pointer'
-                                : 'auto',
+                            this.props.color !== board.EMPTY ||
+                            this.props.readonly
+                                ? 'auto'
+                                : 'pointer',
                         position: 'absolute',
                         top: 0,
                         right: 0,
@@ -58,12 +68,14 @@ export class BoardIntersection extends Component {
                             style={{
                                 background: '#63380E',
                                 borderRadius: 9000,
-                                height: 6,
+                                height: '20%',
                                 position: 'absolute',
                                 left: '50%',
                                 top: '50%',
                                 transform: 'translate(-50%, -50%)',
-                                width: 6,
+                                width: '20%',
+                                minWidth: 4,
+                                minHeight: 4,
                             }}
                         />
                     ) : null}
@@ -97,14 +109,3 @@ export class BoardIntersection extends Component {
         );
     }
 }
-
-const mapStateToProps = state => ({});
-
-export const mapDispatchToProps = {
-    play,
-};
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(BoardIntersection);
