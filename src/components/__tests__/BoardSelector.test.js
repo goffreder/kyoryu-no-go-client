@@ -19,7 +19,7 @@ describe('BoardSelector component', () => {
             <BoardSelector size={9} initBoard={initBoard} />,
         );
 
-        fireEvent.click(getByText('Init 9x9 board'));
+        fireEvent.click(getByText('9x9 board'));
         expect(initBoard).toHaveBeenCalledTimes(1);
     });
 });

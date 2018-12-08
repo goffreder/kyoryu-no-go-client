@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { arrayOf, oneOf } from 'prop-types';
+import { arrayOf, oneOf, bool } from 'prop-types';
 
 import { play } from '../actions/board';
 import { getBoard } from '../reducers/board';
@@ -10,10 +10,12 @@ import BoardIntersection from './BoardIntersection';
 export class Board extends Component {
     static propTypes = {
         board: arrayOf(arrayOf(oneOf([board.EMPTY, board.BLACK, board.WHITE]))),
+        readonly: bool,
     };
 
     static defaultProps = {
         board: [],
+        readonly: false,
     };
 
     render() {
@@ -58,6 +60,7 @@ export class Board extends Component {
                                         starPoints.indexOf(i) >= 0 &&
                                         starPoints.indexOf(j) >= 0
                                     }
+                                    readonly={this.props.readonly}
                                 />
                             ))}
                         </div>

@@ -118,4 +118,14 @@ describe('BoardIntersection component', () => {
         fireEvent.click(container.querySelector('.intersection'));
         expect(play).toHaveBeenCalledTimes(1);
     });
+
+    it('should not call "play" prop on readonly intersection click', () => {
+        const play = jest.fn();
+        const { container } = render(
+            <BoardIntersection row={0} col={0} play={play} readonly />,
+        );
+
+        fireEvent.click(container.querySelector('.intersection'));
+        expect(play).not.toHaveBeenCalled();
+    });
 });
