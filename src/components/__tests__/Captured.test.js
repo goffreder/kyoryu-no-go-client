@@ -21,9 +21,13 @@ describe('Captured component', () => {
 
     it('displays the captured stones counters with Redux', () => {
         expect(
-            renderer.create(<Provider store={createStore(reducers, defaultState)}>
-                <ConnectedCaptured />
-            </Provider>).toJSON(),
+            renderer
+                .create(
+                    <Provider store={createStore(reducers, defaultState)}>
+                        <ConnectedCaptured />
+                    </Provider>,
+                )
+                .toJSON(),
         ).toMatchSnapshot();
     });
 });

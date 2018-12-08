@@ -11,6 +11,12 @@ describe('board action creators', () => {
         });
     });
 
+    it('should create an action to reset the board', () => {
+        expect(actions.resetBoard()).toEqual({
+            type: 'RESET_BOARD',
+        });
+    });
+
     it('should create an action to make a play for the current active color', () => {
         const row = 0,
             col = 0;

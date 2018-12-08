@@ -28,6 +28,32 @@ describe('board reducer', () => {
         });
     });
 
+    it('should reset the board', () => {
+        const currentState = {
+            ...defaultState,
+            board: [
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+                [constants.EMPTY, constants.BLACK, constants.EMPTY],
+                [constants.BLACK, constants.WHITE, constants.WHITE],
+            ],
+            captured: {
+                [constants.BLACK]: 5,
+                [constants.WHITE]: 2,
+            },
+            gameOver: true,
+        };
+        const newState = reducer(currentState, actions.resetBoard());
+
+        expect(newState).toEqual({
+            ...defaultState,
+            board: [
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+            ],
+        });
+    });
+
     it('should make a valid play for the current active color', () => {
         const currentState = {
             ...defaultState,

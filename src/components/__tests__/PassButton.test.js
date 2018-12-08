@@ -21,7 +21,7 @@ describe('PassButton component', () => {
         const { getByText } = render(<PassButton pass={pass} />);
 
         fireEvent.click(getByText('Pass'));
-        expect(pass).toHaveBeenCalled();
+        expect(pass).toHaveBeenCalledTimes(1);
     });
 
     it('displays a "Pass" button with Redux', () => {

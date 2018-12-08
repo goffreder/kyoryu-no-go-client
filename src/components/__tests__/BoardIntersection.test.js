@@ -56,7 +56,7 @@ describe('BoardIntersection component', () => {
         );
 
         fireEvent.click(container.querySelector('.intersection'));
-        expect(play).toHaveBeenCalled();
+        expect(play).toHaveBeenCalledTimes(1);
     });
 
     it('displays an empty intersection with Redux', () => {
