@@ -335,6 +335,18 @@ describe('board reducer', () => {
 });
 
 describe('board selectors', () => {
+    it('isBoardInit should return true if board has been initialized, false otherwise', () => {
+        const currentState = {
+            ...defaultState,
+        };
+
+        expect(selectors.isBoardInit(currentState)).toEqual(false);
+
+        const newState = reducer(currentState, actions.initBoard(2));
+
+        expect(selectors.isBoardInit(newState)).toEqual(true);
+    });
+
     it('should get the board', () => {
         const board = [
             [constants.EMPTY, constants.WHITE, constants.EMPTY],

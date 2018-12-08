@@ -128,6 +128,7 @@ const reducer = {
     },
 };
 
+export const isBoardInit = state => !isEmpty(state.board);
 export const getBoard = state => state.board;
 export const getCaptured = state => state.captured;
 export const getActiveColor = state => state.color;

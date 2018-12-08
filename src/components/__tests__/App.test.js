@@ -1,25 +1,36 @@
 import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { render } from 'react-testing-library';
+import renderer from 'react-test-renderer';
 import reducers, { defaultState } from '../../reducers';
 import { initBoard } from '../../actions/board';
 import App, { mapDispatchToProps } from '../App';
 
 describe('App component', () => {
-    it('displays the application with Redux', () => {
-        const { container } = render(
-            <Provider store={createStore(reducers, defaultState)}>
-                <App />
-            </Provider>,
-        );
+    it('displays the board selectors if the board has not been initialized', () => {
+        expect(
+            renderer
+                .create(
+                    <Provider store={createStore(reducers, defaultState)}>
+                        <App />
+                    </Provider>,
+                )
+                .toJSON(),
+        ).toMatchSnapshot();
+    });
 
-        expect(container.querySelector('#board')).toBeInTheDocument();
-        expect(container.querySelector('#captured-stones')).toBeInTheDocument();
-        expect(container.querySelector('#active-color')).toBeInTheDocument();
-        expect(container.querySelector('#pass-btn')).toBeInTheDocument();
-        expect(container.querySelector('#reset-btn')).toBeInTheDocument();
-        expect(container.querySelector('#alerts')).toBeInTheDocument();
+    it('displays the board if it has been initialized', () => {
+        const currentState = reducers(defaultState, initBoard(9));
+
+        expect(
+            renderer
+                .create(
+                    <Provider store={createStore(reducers, currentState)}>
+                        <App />
+                    </Provider>,
+                )
+                .toJSON(),
+        ).toMatchSnapshot();
     });
 
     it('should use the correct action creators', () => {

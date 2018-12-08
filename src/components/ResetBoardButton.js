@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { func } from 'prop-types';
-import 'materialize-css';
 
 import { resetBoard } from '../actions/board';
 
-export class ResetButton extends Component {
+export class ResetBoardButton extends Component {
     static propTypes = {
         resetBoard: func.isRequired,
     };
@@ -18,10 +17,10 @@ export class ResetButton extends Component {
         return (
             <button
                 className="waves-effect waves-light btn blue-grey darken-4"
-                id="reset-btn"
+                id="reset-board-btn"
                 onClick={this.handleClick}
             >
-                {'Reset'}
+                {'Reset board'}
             </button>
         );
     };
@@ -36,4 +35,4 @@ export const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(ResetButton);
+)(ResetBoardButton);
