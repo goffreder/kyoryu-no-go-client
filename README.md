@@ -14,6 +14,29 @@ Credits to:
     Tests:       72 passed, 72 total
     Snapshots:   15 passed, 15 total
 
+## Code Coverage
+    -----------------------|----------|----------|----------|----------|-------------------|
+    File                   |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+    -----------------------|----------|----------|----------|----------|-------------------|
+    All files              |      100 |      100 |      100 |      100 |                   |
+     actions               |      100 |      100 |      100 |      100 |                   |
+      board.js             |      100 |      100 |      100 |      100 |                   |
+     components            |      100 |      100 |      100 |      100 |                   |
+      ActiveColor.js       |      100 |      100 |      100 |      100 |                   |
+      App.js               |      100 |      100 |      100 |      100 |                   |
+      Board.js             |      100 |      100 |      100 |      100 |                   |
+      BoardIntersection.js |      100 |      100 |      100 |      100 |                   |
+      BoardMessage.js      |      100 |      100 |      100 |      100 |                   |
+      BoardSelector.js     |      100 |      100 |      100 |      100 |                   |
+      Captured.js          |      100 |      100 |      100 |      100 |                   |
+      PassButton.js        |      100 |      100 |      100 |      100 |                   |
+      ResetBoardButton.js  |      100 |      100 |      100 |      100 |                   |
+      Stone.js             |      100 |      100 |      100 |      100 |                   |
+     reducers              |      100 |      100 |      100 |      100 |                   |
+      board.js             |      100 |      100 |      100 |      100 |                   |
+      index.js             |      100 |      100 |      100 |      100 |                   |
+    -----------------------|----------|----------|----------|----------|-------------------|
+
 ## Mutation Score
 
 I'm just mutating reducers/selectors and action creators. Since visual components have too many mutation points (css properties, classes, etc...), it made no sense to me to test them with mutations.
