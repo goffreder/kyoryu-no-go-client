@@ -1,4 +1,5 @@
 import isEmpty from 'lodash/isEmpty';
+import includes from 'lodash/includes';
 
 import { board as constants, msg } from '../constants';
 
@@ -48,16 +49,24 @@ const reducer = {
 
         let neighbors = getAdjacentIntersections(state.board, row, col);
         let captured = [];
-        let capturedCount = 0;
+        let capturedStones = [];
         let atari = false;
 
         neighbors.forEach(n => {
             const i = state.board[n[0]][n[1]];
 
-            if (i !== constants.EMPTY && i !== activeColor) {
+            if (
+                i !== constants.EMPTY &&
+                i !== activeColor &&
+                !includes(capturedStones, `${n[0]},${n[1]}`)
+            ) {
                 const group = getGroup(newBoard, n[0], n[1]);
 
                 if (group.liberties === 0) {
+                    capturedStones = [
+                        ...capturedStones,
+                        ...group.stones.map(([r, c]) => `${r},${c}`),
+                    ];
                     captured.push(group);
                 }
 
@@ -75,8 +84,6 @@ const reducer = {
         }
 
         captured.forEach(group => {
-            capturedCount += group.stones.length;
-
             group.stones.forEach(([row, col]) => {
                 newBoard = setBoardCell(newBoard, row, col, constants.EMPTY);
             });
@@ -90,7 +97,8 @@ const reducer = {
             board: newBoard,
             captured: {
                 ...state.captured,
-                [newColor]: (state.captured[newColor] += capturedCount),
+                [newColor]: (state.captured[newColor] =
+                    state.captured[newColor] + capturedStones.length),
             },
             color: newColor,
             atari,
