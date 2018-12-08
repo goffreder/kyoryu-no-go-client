@@ -5,6 +5,7 @@ import { func } from 'prop-types';
 import { initBoard } from '../actions/board';
 
 import Board from './Board';
+import Captured from './Captured';
 import BoardMessage from './BoardMessage';
 import PassButton from './PassButton';
 
@@ -31,9 +32,17 @@ class App extends Component {
                         padding: 20,
                     }}
                 >
-                    <div className="container">
-                        <BoardMessage />
+                    <div
+                        className="container"
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                        }}
+                    >
                         <PassButton />
+                        <Captured />
+                        <BoardMessage />
                     </div>
                 </div>
             </div>

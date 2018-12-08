@@ -4,6 +4,10 @@ import { board as constants, msg } from '../constants';
 
 export const defaultState = {
     board: [],
+    captured: {
+        [constants.BLACK]: 0,
+        [constants.WHITE]: 0,
+    },
     color: constants.BLACK,
     atari: false,
     suicide: false,
@@ -30,21 +34,19 @@ const reducer = {
             return state;
         }
 
-        let newBoard = setBoardCell(
-            state.board,
-            row,
-            col,
-            color || state.color,
-        );
+        const activeColor = color || state.color;
+
+        let newBoard = setBoardCell(state.board, row, col, activeColor);
 
         let neighbors = getAdjacentIntersections(state.board, row, col);
         let captured = [];
+        let capturedCount = 0;
         let atari = false;
 
         neighbors.forEach(n => {
             const i = state.board[n[0]][n[1]];
 
-            if (i !== constants.EMPTY && i !== (color || state.color)) {
+            if (i !== constants.EMPTY && i !== activeColor) {
                 const group = getGroup(newBoard, n[0], n[1]);
 
                 if (group.liberties === 0) {
@@ -65,19 +67,23 @@ const reducer = {
         }
 
         captured.forEach(group => {
+            capturedCount += group.stones.length;
+
             group.stones.forEach(([row, col]) => {
                 newBoard = setBoardCell(newBoard, row, col, constants.EMPTY);
             });
         });
 
         const newColor =
-            (color || state.color) === constants.BLACK
-                ? constants.WHITE
-                : constants.BLACK;
+            activeColor === constants.BLACK ? constants.WHITE : constants.BLACK;
 
         return {
             ...state,
             board: newBoard,
+            captured: {
+                ...state.captured,
+                [newColor]: (state.captured[newColor] += capturedCount),
+            },
             color: newColor,
             atari,
             suicide: false,
@@ -98,6 +104,7 @@ const reducer = {
 };
 
 export const getBoard = state => state.board;
+export const getCaptured = state => state.captured;
 
 export const getBoardMessage = state => {
     if (state.gameOver) {

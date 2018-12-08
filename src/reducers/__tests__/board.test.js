@@ -240,18 +240,22 @@ describe('board reducer', () => {
             ...defaultState,
             color: constants.BLACK,
             board: [
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
                 [constants.EMPTY, constants.BLACK, constants.EMPTY],
-                [constants.BLACK, constants.WHITE, constants.EMPTY],
-                [constants.EMPTY, constants.BLACK, constants.EMPTY],
+                [constants.BLACK, constants.WHITE, constants.WHITE],
             ],
         };
         const newState = reducer(currentState, actions.play(1, 2));
 
         expect(newState.board).toEqual([
-            [constants.EMPTY, constants.BLACK, constants.EMPTY],
-            [constants.BLACK, constants.EMPTY, constants.BLACK],
-            [constants.EMPTY, constants.BLACK, constants.EMPTY],
+            [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+            [constants.EMPTY, constants.BLACK, constants.BLACK],
+            [constants.BLACK, constants.EMPTY, constants.EMPTY],
         ]);
+        expect(newState.captured).toEqual({
+            [constants.BLACK]: 0,
+            [constants.WHITE]: 2,
+        });
     });
 
     it('should set the atari flag', () => {
@@ -304,6 +308,22 @@ describe('board selectors', () => {
             [constants.EMPTY, constants.EMPTY, constants.EMPTY],
         ]);
     });
+
+    it('should get the captured stones counts', () => {
+        expect(
+            selectors.getCaptured({
+                ...defaultState,
+                captured: {
+                    [constants.BLACK]: 0,
+                    [constants.WHITE]: 1,
+                },
+            }),
+        ).toEqual({
+            [constants.BLACK]: 0,
+            [constants.WHITE]: 1,
+        });
+    });
+
     it('should get the adjacent intersections for a given cell', () => {
         const board = [
             [constants.EMPTY, constants.EMPTY, constants.EMPTY],

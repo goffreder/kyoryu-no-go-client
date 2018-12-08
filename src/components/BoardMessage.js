@@ -11,7 +11,11 @@ export class BoardMessage extends Component {
     };
 
     render = function() {
-        return <div id="alerts">{this.props.text}</div>;
+        return (
+            <div id="alerts" style={{ width: 100, textAlign: 'right' }}>
+                {this.props.text}
+            </div>
+        );
     };
 }
 
