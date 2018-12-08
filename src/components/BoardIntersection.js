@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { func, number, oneOf } from 'prop-types';
+import { func, number, oneOf, bool } from 'prop-types';
 import classNames from 'classnames';
 
-import { play } from '../actions/board';
 import Stone from './Stone';
 import { board } from '../constants';
 
-export class BoardIntersection extends Component {
+export default class extends Component {
     static propTypes = {
         row: number.isRequired,
         col: number.isRequired,
         color: oneOf([board.EMPTY, board.BLACK, board.WHITE]),
         play: func.isRequired,
+        width: number,
+        isTopEdge: bool,
+        isRightEdge: bool,
+        isBottomEdge: bool,
+        isLeftEdge: bool,
+        isStarPoint: bool,
     };
 
     static defaultProps = {
         color: board.EMPTY,
+        width: 100,
     };
 
     handleClick = () => {
@@ -97,14 +102,3 @@ export class BoardIntersection extends Component {
         );
     }
 }
-
-const mapStateToProps = state => ({});
-
-export const mapDispatchToProps = {
-    play,
-};
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(BoardIntersection);

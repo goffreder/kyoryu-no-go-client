@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { arrayOf, oneOf } from 'prop-types';
 
+import { play } from '../actions/board';
 import { getBoard } from '../reducers/board';
 import { board } from '../constants';
 import BoardIntersection from './BoardIntersection';
@@ -48,6 +49,7 @@ export class Board extends Component {
                                     row={i}
                                     col={j}
                                     width={width}
+                                    play={this.props.play}
                                     isTopEdge={i === 0}
                                     isRightEdge={j === size - 1}
                                     isBottomEdge={i === size - 1}
@@ -70,7 +72,9 @@ const mapStateToProps = state => ({
     board: getBoard(state.board),
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = {
+    play,
+};
 
 export default connect(
     mapStateToProps,
