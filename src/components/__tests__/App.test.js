@@ -15,6 +15,8 @@ describe('App component', () => {
         );
 
         expect(container.querySelector('#board')).toBeInTheDocument();
+        expect(container.querySelector('#captured-stones')).toBeInTheDocument();
+        expect(container.querySelector('#active-color')).toBeInTheDocument();
         expect(container.querySelector('#pass-btn')).toBeInTheDocument();
         expect(container.querySelector('#reset-btn')).toBeInTheDocument();
         expect(container.querySelector('#alerts')).toBeInTheDocument();

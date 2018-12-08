@@ -6,6 +6,7 @@ import { initBoard } from '../actions/board';
 
 import Board from './Board';
 import Captured from './Captured';
+import ActiveColor from './ActiveColor';
 import BoardMessage from './BoardMessage';
 import PassButton from './PassButton';
 import ResetButton from './ResetButton';
@@ -52,6 +53,7 @@ class App extends Component {
                             <PassButton />
                             <ResetButton />
                         </div>
+                        <ActiveColor />
                         <Captured />
                         <BoardMessage />
                     </div>

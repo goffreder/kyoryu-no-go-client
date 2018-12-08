@@ -29,7 +29,7 @@ export class Captured extends Component {
         };
 
         return (
-            <div>
+            <div id="captured-stones">
                 {'Captured stones:'}
                 <div style={counterContainerStyle}>
                     <div style={stoneContainerStyle}>

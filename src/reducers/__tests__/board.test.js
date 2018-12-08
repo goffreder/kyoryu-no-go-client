@@ -195,15 +195,34 @@ describe('board reducer', () => {
     });
 
     it('should change the active color after a pass', () => {
+        let newState = reducer(
+            {
+                ...defaultState,
+                color: constants.BLACK,
+            },
+            actions.pass(),
+        );
+        expect(newState.color).toEqual(constants.WHITE);
+
+        newState = reducer(
+            {
+                ...defaultState,
+                color: constants.WHITE,
+            },
+            actions.pass(),
+        );
+        expect(newState.color).toEqual(constants.BLACK);
+    });
+
+    it('should not change the active color when a game over occurs', () => {
         const currentState = {
             ...defaultState,
             color: constants.BLACK,
+            passed: true,
         };
+        const newState = reducer(currentState, actions.pass());
 
-        let newState = reducer(currentState, actions.pass());
-        expect(newState.color).toEqual(constants.WHITE);
-
-        newState = reducer(newState, actions.pass());
+        expect(newState.gameOver).toEqual(true);
         expect(newState.color).toEqual(constants.BLACK);
     });
 
@@ -400,6 +419,15 @@ describe('board selectors', () => {
             .toEqual(expect.arrayContaining([[1, 0]]))
             .toHaveLength(1);
         expect(group.liberties).toEqual(2);
+    });
+
+    it('should get the active color', () => {
+        expect(
+            selectors.getActiveColor({
+                ...defaultState,
+                color: constants.BLACK,
+            }),
+        ).toEqual(constants.BLACK);
     });
 
     it('should return the correct message', () => {

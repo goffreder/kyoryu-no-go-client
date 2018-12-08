@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stone component should display a black stone 1`] = `
+exports[`Stone component displays a black stone 1`] = `
 <div
   className="stone stone-black"
   style={
@@ -22,7 +22,7 @@ exports[`Stone component should display a black stone 1`] = `
 />
 `;
 
-exports[`Stone component should display a white stone 1`] = `
+exports[`Stone component displays a white stone 1`] = `
 <div
   className="stone stone-white"
   style={

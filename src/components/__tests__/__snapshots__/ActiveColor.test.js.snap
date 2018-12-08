@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActiveColor component display black as the active color 1`] = `
+<div
+  id="active-color"
+  style={
+    Object {
+      "height": 36,
+      "position": "relative",
+      "width": 36,
+    }
+  }
+>
+  <div
+    className="stone stone-black"
+    style={
+      Object {
+        "background": "#101015",
+        "borderRadius": 9001,
+        "bottom": "5%",
+        "boxShadow": Array [
+          "inset 0 3.3333333333333335px 6.666666666666667px 0 rgba(255, 255, 255, .2)",
+          "0 1.6666666666666667px 3.3333333333333335px 0 rgba(0, 0, 0, .16)",
+          "0 1.6666666666666667px 5px 0 rgba(0, 0, 0, .12)",
+        ],
+        "left": "5%",
+        "position": "absolute",
+        "right": "5%",
+        "top": "5%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`ActiveColor component displays the active color with Redux 1`] = `
+<div
+  id="active-color"
+  style={
+    Object {
+      "height": 36,
+      "position": "relative",
+      "width": 36,
+    }
+  }
+>
+  <div
+    className="stone stone-black"
+    style={
+      Object {
+        "background": "#101015",
+        "borderRadius": 9001,
+        "bottom": "5%",
+        "boxShadow": Array [
+          "inset 0 3.3333333333333335px 6.666666666666667px 0 rgba(255, 255, 255, .2)",
+          "0 1.6666666666666667px 3.3333333333333335px 0 rgba(0, 0, 0, .16)",
+          "0 1.6666666666666667px 5px 0 rgba(0, 0, 0, .12)",
+        ],
+        "left": "5%",
+        "position": "absolute",
+        "right": "5%",
+        "top": "5%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`ActiveColor component displays white as the active color 1`] = `
+<div
+  id="active-color"
+  style={
+    Object {
+      "height": 36,
+      "position": "relative",
+      "width": 36,
+    }
+  }
+>
+  <div
+    className="stone stone-white"
+    style={
+      Object {
+        "background": "#EEEEF0",
+        "borderRadius": 9001,
+        "bottom": "5%",
+        "boxShadow": Array [
+          "inset 0 -3.3333333333333335px 6.666666666666667px 0 rgba(0, 0, 0, .16)",
+          "0 1.6666666666666667px 3.3333333333333335px 0 rgba(0, 0, 0, .16)",
+          "0 1.6666666666666667px 5px 0 rgba(0, 0, 0, .12)",
+        ],
+        "left": "5%",
+        "position": "absolute",
+        "right": "5%",
+        "top": "5%",
+      }
+    }
+  />
+</div>
+`;

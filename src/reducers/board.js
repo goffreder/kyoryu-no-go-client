@@ -107,13 +107,22 @@ const reducer = {
         };
     },
     PASS: (state, { payload }) => {
+        let newColor = null;
+
+        if (state.passed) {
+            newColor = state.color;
+        } else {
+            if (state.color === constants.BLACK) {
+                newColor = constants.WHITE;
+            } else {
+                newColor = constants.BLACK;
+            }
+        }
+
         return {
             ...state,
             passed: true,
-            color:
-                state.color === constants.BLACK
-                    ? constants.WHITE
-                    : constants.BLACK,
+            color: newColor,
             gameOver: state.passed && true,
         };
     },
@@ -121,6 +130,7 @@ const reducer = {
 
 export const getBoard = state => state.board;
 export const getCaptured = state => state.captured;
+export const getActiveColor = state => state.color;
 
 export const getBoardMessage = state => {
     if (state.gameOver) {

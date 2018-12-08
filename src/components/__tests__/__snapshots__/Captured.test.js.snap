@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Captured component displays the captured stones counters 1`] = `
-<div>
+<div
+  id="captured-stones"
+>
   Captured stones:
   <div
     style={
@@ -95,7 +97,9 @@ exports[`Captured component displays the captured stones counters 1`] = `
 `;
 
 exports[`Captured component displays the captured stones counters with Redux 1`] = `
-<div>
+<div
+  id="captured-stones"
+>
   Captured stones:
   <div
     style={
