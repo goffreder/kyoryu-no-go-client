@@ -4621,14 +4621,14 @@ exports[`App component displays the board if it has been initialized 1`] = `
         <div
           id="captured-stones"
         >
-          Captured stones:
           <div
             style={
               Object {
                 "alignItems": "center",
                 "display": "flex",
                 "justifyContent": "center",
-                "marginTop": 10,
+                "marginBottom": 5,
+                "marginTop": 5,
               }
             }
           >
@@ -4672,7 +4672,8 @@ exports[`App component displays the board if it has been initialized 1`] = `
                 "alignItems": "center",
                 "display": "flex",
                 "justifyContent": "center",
-                "marginTop": 10,
+                "marginBottom": 5,
+                "marginTop": 5,
               }
             }
           >

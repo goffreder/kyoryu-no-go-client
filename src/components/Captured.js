@@ -18,7 +18,8 @@ export class Captured extends Component {
         const counterContainerStyle = {
             display: 'flex',
             alignItems: 'center',
-            marginTop: 10,
+            marginTop: 5,
+            marginBottom: 5,
             justifyContent: 'center',
         };
         const stoneContainerStyle = {
@@ -30,7 +31,6 @@ export class Captured extends Component {
 
         return (
             <div id="captured-stones">
-                {'Captured stones:'}
                 <div style={counterContainerStyle}>
                     <div style={stoneContainerStyle}>
                         <Stone color={constants.WHITE} />

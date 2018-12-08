@@ -4,14 +4,14 @@ exports[`Captured component displays the captured stones counters 1`] = `
 <div
   id="captured-stones"
 >
-  Captured stones:
   <div
     style={
       Object {
         "alignItems": "center",
         "display": "flex",
         "justifyContent": "center",
-        "marginTop": 10,
+        "marginBottom": 5,
+        "marginTop": 5,
       }
     }
   >
@@ -55,7 +55,8 @@ exports[`Captured component displays the captured stones counters 1`] = `
         "alignItems": "center",
         "display": "flex",
         "justifyContent": "center",
-        "marginTop": 10,
+        "marginBottom": 5,
+        "marginTop": 5,
       }
     }
   >
@@ -100,14 +101,14 @@ exports[`Captured component displays the captured stones counters with Redux 1`]
 <div
   id="captured-stones"
 >
-  Captured stones:
   <div
     style={
       Object {
         "alignItems": "center",
         "display": "flex",
         "justifyContent": "center",
-        "marginTop": 10,
+        "marginBottom": 5,
+        "marginTop": 5,
       }
     }
   >
@@ -151,7 +152,8 @@ exports[`Captured component displays the captured stones counters with Redux 1`]
         "alignItems": "center",
         "display": "flex",
         "justifyContent": "center",
-        "marginTop": 10,
+        "marginBottom": 5,
+        "marginTop": 5,
       }
     }
   >
