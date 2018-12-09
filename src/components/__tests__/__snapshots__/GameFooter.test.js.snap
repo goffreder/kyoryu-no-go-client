@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameFooter component displays the game footer 1`] = `
+<div
+  className="page-footer blue-grey darken-2 row"
+  id="game-footer"
+>
+  <div
+    className="section col s6 m3"
+  >
+    <button
+      className="waves-effect waves-light btn blue-grey darken-4"
+      id="pass-btn"
+      onClick={[Function]}
+    >
+      Pass
+    </button>
+  </div>
+  <div
+    className="section section-vertical col s6 m1"
+  >
+    <div
+      id="active-color"
+      style={
+        Object {
+          "height": 36,
+          "position": "relative",
+          "width": 36,
+        }
+      }
+    >
+      <div
+        className="stone stone-black"
+        style={
+          Object {
+            "background": "#101015",
+            "borderRadius": 9001,
+            "bottom": "5%",
+            "boxShadow": Array [
+              "inset 0 3.3333333333333335px 6.666666666666667px 0 rgba(255, 255, 255, .2)",
+              "0 1.6666666666666667px 3.3333333333333335px 0 rgba(0, 0, 0, .16)",
+              "0 1.6666666666666667px 5px 0 rgba(0, 0, 0, .12)",
+            ],
+            "left": "5%",
+            "position": "absolute",
+            "right": "5%",
+            "top": "5%",
+          }
+        }
+      />
+    </div>
+    <div
+      id="alerts"
+    >
+      
+    </div>
+  </div>
+  <div
+    className="section col s12 m4"
+  >
+    <div
+      id="captured-stones"
+    >
+      <div
+        className="captured-wrapper"
+      >
+        <div
+          style={
+            Object {
+              "height": 36,
+              "position": "relative",
+              "width": 36,
+            }
+          }
+        >
+          <div
+            className="stone stone-white"
+            style={
+              Object {
+                "background": "#EEEEF0",
+                "borderRadius": 9001,
+                "bottom": "5%",
+                "boxShadow": Array [
+                  "inset 0 -3.3333333333333335px 6.666666666666667px 0 rgba(0, 0, 0, .16)",
+                  "0 1.6666666666666667px 3.3333333333333335px 0 rgba(0, 0, 0, .16)",
+                  "0 1.6666666666666667px 5px 0 rgba(0, 0, 0, .12)",
+                ],
+                "left": "5%",
+                "position": "absolute",
+                "right": "5%",
+                "top": "5%",
+              }
+            }
+          />
+        </div>
+        <span>
+          0
+        </span>
+      </div>
+      <div
+        className="captured-wrapper"
+      >
+        <div
+          style={
+            Object {
+              "height": 36,
+              "position": "relative",
+              "width": 36,
+            }
+          }
+        >
+          <div
+            className="stone stone-black"
+            style={
+              Object {
+                "background": "#101015",
+                "borderRadius": 9001,
+                "bottom": "5%",
+                "boxShadow": Array [
+                  "inset 0 3.3333333333333335px 6.666666666666667px 0 rgba(255, 255, 255, .2)",
+                  "0 1.6666666666666667px 3.3333333333333335px 0 rgba(0, 0, 0, .16)",
+                  "0 1.6666666666666667px 5px 0 rgba(0, 0, 0, .12)",
+                ],
+                "left": "5%",
+                "position": "absolute",
+                "right": "5%",
+                "top": "5%",
+              }
+            }
+          />
+        </div>
+        <span>
+          0
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="section col s12 m4"
+  >
+    <button
+      className="waves-effect waves-light btn blue-grey darken-4"
+      id="reset-board-btn"
+      onClick={[Function]}
+    >
+      Reset board
+    </button>
+    <button
+      className="waves-effect waves-light btn blue-grey darken-4"
+      id="quit-game-btn"
+      onClick={[Function]}
+    >
+      Quit game
+    </button>
+  </div>
+</div>
+`;

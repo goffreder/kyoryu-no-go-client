@@ -7,12 +7,7 @@ import { initBoard } from '../actions/board';
 
 import BoardSelector from './BoardSelector';
 import Board from './Board';
-import Captured from './Captured';
-import ActiveColor from './ActiveColor';
-import BoardMessage from './BoardMessage';
-import PassButton from './PassButton';
-import ResetBoardButton from './ResetBoardButton';
-import QuitGameButton from './QuitGameButton';
+import GameFooter from './GameFooter';
 
 class App extends Component {
     // componentDidMount() {
@@ -41,38 +36,7 @@ class App extends Component {
             <div className="container">
                 <Board />
             </div>
-            <div
-                className="page-footer blue-grey darken-2"
-                style={{
-                    marginTop: 20,
-                    padding: 20,
-                }}
-            >
-                <div
-                    className="container"
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                    }}
-                >
-                    <PassButton />
-                    <ActiveColor />
-                    <Captured />
-                    <BoardMessage />
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            height: 100,
-                            justifyContent: 'space-evenly',
-                        }}
-                    >
-                        <ResetBoardButton />
-                        <QuitGameButton />
-                    </div>
-                </div>
-            </div>
+            <GameFooter />
         </div>
     );
 

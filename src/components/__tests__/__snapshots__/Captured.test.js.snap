@@ -5,21 +5,12 @@ exports[`Captured component displays the captured stones counters 1`] = `
   id="captured-stones"
 >
   <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginTop": 5,
-      }
-    }
+    className="captured-wrapper"
   >
     <div
       style={
         Object {
           "height": 36,
-          "marginRight": 5,
           "position": "relative",
           "width": 36,
         }
@@ -50,21 +41,12 @@ exports[`Captured component displays the captured stones counters 1`] = `
     </span>
   </div>
   <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginTop": 5,
-      }
-    }
+    className="captured-wrapper"
   >
     <div
       style={
         Object {
           "height": 36,
-          "marginRight": 5,
           "position": "relative",
           "width": 36,
         }
@@ -102,21 +84,12 @@ exports[`Captured component displays the captured stones counters with Redux 1`]
   id="captured-stones"
 >
   <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginTop": 5,
-      }
-    }
+    className="captured-wrapper"
   >
     <div
       style={
         Object {
           "height": 36,
-          "marginRight": 5,
           "position": "relative",
           "width": 36,
         }
@@ -147,21 +120,12 @@ exports[`Captured component displays the captured stones counters with Redux 1`]
     </span>
   </div>
   <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "justifyContent": "center",
-        "marginBottom": 5,
-        "marginTop": 5,
-      }
-    }
+    className="captured-wrapper"
   >
     <div
       style={
         Object {
           "height": 36,
-          "marginRight": 5,
           "position": "relative",
           "width": 36,
         }

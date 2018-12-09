@@ -4553,23 +4553,11 @@ exports[`App component displays the board if it has been initialized 1`] = `
       </div>
     </div>
     <div
-      className="page-footer blue-grey darken-2"
-      style={
-        Object {
-          "marginTop": 20,
-          "padding": 20,
-        }
-      }
+      className="page-footer blue-grey darken-2 row"
+      id="game-footer"
     >
       <div
-        className="container"
-        style={
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "justifyContent": "space-between",
-          }
-        }
+        className="section col s6 m3"
       >
         <button
           className="waves-effect waves-light btn blue-grey darken-4"
@@ -4578,6 +4566,10 @@ exports[`App component displays the board if it has been initialized 1`] = `
         >
           Pass
         </button>
+      </div>
+      <div
+        className="section section-vertical col s6 m1"
+      >
         <div
           id="active-color"
           style={
@@ -4609,24 +4601,24 @@ exports[`App component displays the board if it has been initialized 1`] = `
           />
         </div>
         <div
+          id="alerts"
+        >
+          
+        </div>
+      </div>
+      <div
+        className="section col s12 m4"
+      >
+        <div
           id="captured-stones"
         >
           <div
-            style={
-              Object {
-                "alignItems": "center",
-                "display": "flex",
-                "justifyContent": "center",
-                "marginBottom": 5,
-                "marginTop": 5,
-              }
-            }
+            className="captured-wrapper"
           >
             <div
               style={
                 Object {
                   "height": 36,
-                  "marginRight": 5,
                   "position": "relative",
                   "width": 36,
                 }
@@ -4657,21 +4649,12 @@ exports[`App component displays the board if it has been initialized 1`] = `
             </span>
           </div>
           <div
-            style={
-              Object {
-                "alignItems": "center",
-                "display": "flex",
-                "justifyContent": "center",
-                "marginBottom": 5,
-                "marginTop": 5,
-              }
-            }
+            className="captured-wrapper"
           >
             <div
               style={
                 Object {
                   "height": 36,
-                  "marginRight": 5,
                   "position": "relative",
                   "width": 36,
                 }
@@ -4702,42 +4685,24 @@ exports[`App component displays the board if it has been initialized 1`] = `
             </span>
           </div>
         </div>
-        <div
-          id="alerts"
-          style={
-            Object {
-              "textAlign": "right",
-              "width": 100,
-            }
-          }
+      </div>
+      <div
+        className="section col s12 m4"
+      >
+        <button
+          className="waves-effect waves-light btn blue-grey darken-4"
+          id="reset-board-btn"
+          onClick={[Function]}
         >
-          
-        </div>
-        <div
-          style={
-            Object {
-              "display": "flex",
-              "flexDirection": "column",
-              "height": 100,
-              "justifyContent": "space-evenly",
-            }
-          }
+          Reset board
+        </button>
+        <button
+          className="waves-effect waves-light btn blue-grey darken-4"
+          id="quit-game-btn"
+          onClick={[Function]}
         >
-          <button
-            className="waves-effect waves-light btn blue-grey darken-4"
-            id="reset-board-btn"
-            onClick={[Function]}
-          >
-            Reset board
-          </button>
-          <button
-            className="waves-effect waves-light btn blue-grey darken-4"
-            id="quit-game-btn"
-            onClick={[Function]}
-          >
-            Quit game
-          </button>
-        </div>
+          Quit game
+        </button>
       </div>
     </div>
   </div>

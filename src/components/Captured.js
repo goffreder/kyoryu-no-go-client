@@ -15,15 +15,7 @@ export class Captured extends Component {
     };
 
     render() {
-        const counterContainerStyle = {
-            display: 'flex',
-            alignItems: 'center',
-            marginTop: 5,
-            marginBottom: 5,
-            justifyContent: 'center',
-        };
         const stoneContainerStyle = {
-            marginRight: 5,
             position: 'relative',
             width: 36,
             height: 36,
@@ -31,13 +23,13 @@ export class Captured extends Component {
 
         return (
             <div id="captured-stones">
-                <div style={counterContainerStyle}>
+                <div className="captured-wrapper">
                     <div style={stoneContainerStyle}>
                         <Stone color={constants.WHITE} />
                     </div>
                     <span>{this.props.captured[constants.WHITE]}</span>
                 </div>
-                <div style={counterContainerStyle}>
+                <div className="captured-wrapper">
                     <div style={stoneContainerStyle}>
                         <Stone color={constants.BLACK} />
                     </div>

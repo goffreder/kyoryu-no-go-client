@@ -1,63 +1,26 @@
-#app {
-    text-align: center;
+#game-footer {
+    padding-right: 20px;
+    padding-left: 20px;
 
-    .page-footer {
-        margin-top: 20px;
-        padding: 20px;
-    }
-}
+    .section {
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
 
-#alerts {
-    height: 40px;
-    line-height: 40px;
-}
-
-#board {
-    position: relative;
-    margin: auto;
-    background-color: #DCB771;
-}
-
-.intersection {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-
-    &:before {
-        border-top: 2px #000 solid;
-        width: 40px;
-        display: block;
-        content: "";
-        top: 18px;
-        position: absolute;
-        // z-index: -1;
-    }
-
-    &:after {
-        border-left: 2px #000 solid;
-        height: 40px;
-        display: block;
-        content: "";
-        left: 18px;
-        top: 0px;
-        position: absolute;
-        // z-index: -1;
-    }
-
-    .stone {
-        width: 40px;
-        height: 40px;
-        border: 1px solid #000;
-        border-radius: 20px;
-        box-sizing: border-box;
-        z-index: 1;
-
-        &.white {
-            background-color: #eee;
+        &.section-vertical {
+            flex-direction: column;
         }
+    }
 
-        &.black {
-            background-color: #444;
-        }
+    #alerts {
+        height: 1.8em;
+        line-height: 1.8em;
+    }
+
+    #captured-stones div.captured-wrapper {
+        display: inline-block;
+        text-align: center;
+        margin: 0 20px;
     }
 }

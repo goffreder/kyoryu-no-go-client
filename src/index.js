@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'materialize-css/dist/css/materialize.min.css';
-// import './style.scss';
+import './style.scss';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
