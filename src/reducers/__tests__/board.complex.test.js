@@ -1,4 +1,4 @@
-import reducer from '../board';
+import reducer, { defaultState } from '../board';
 import * as actions from '../../actions/board';
 import { board } from '../../constants';
 
@@ -32,6 +32,24 @@ describe('board complex tests', () => {
         expect(newState.captured).toEqual({
             [board.WHITE]: 9,
             [board.BLACK]: 5,
+        });
+    });
+
+    it('should not change the defaultState when capturing stones', () => {
+        const currentState = {
+            ...defaultState,
+            color: board.BLACK,
+            board: [
+                [board.EMPTY, board.EMPTY, board.EMPTY],
+                [board.EMPTY, board.BLACK, board.EMPTY],
+                [board.BLACK, board.WHITE, board.WHITE],
+            ],
+        };
+        reducer(currentState, actions.play(1, 2));
+
+        expect(defaultState.captured).toEqual({
+            [board.BLACK]: 0,
+            [board.WHITE]: 0,
         });
     });
 });

@@ -102,8 +102,7 @@ const reducer = {
             board: newBoard,
             captured: {
                 ...state.captured,
-                [newColor]: (state.captured[newColor] =
-                    state.captured[newColor] + capturedStones.length),
+                [newColor]: state.captured[newColor] + capturedStones.length,
             },
             color: newColor,
             atari,
