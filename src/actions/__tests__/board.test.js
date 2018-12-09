@@ -64,4 +64,10 @@ describe('board action creators', () => {
             type: 'PASS',
         });
     });
+
+    it('should create an action to quit the game', () => {
+        expect(actions.quitGame()).toEqual({
+            type: 'QUIT_GAME'
+        });
+    });
 });

@@ -31,6 +31,11 @@ const reducer = {
             ),
         };
     },
+    QUIT_GAME: () => {
+        return {
+            ...defaultState,
+        };
+    },
     PLAY: (state, { payload: { row, col, color } }) => {
         if (state.gameOver) {
             return state;

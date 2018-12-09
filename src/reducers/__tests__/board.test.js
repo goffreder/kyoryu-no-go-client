@@ -332,6 +332,26 @@ describe('board reducer', () => {
 
         expect(newState.atari).toEqual(false);
     });
+
+    it('should reset the state when the game is being quit', () => {
+        const currentState = {
+            ...defaultState,
+            color: constants.BLACK,
+            board: [
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+                [constants.EMPTY, constants.BLACK, constants.EMPTY],
+                [constants.BLACK, constants.WHITE, constants.WHITE],
+            ],
+            gameOver: true,
+            captured: {
+                [constants.BLACK]: 5,
+                [constants.WHITE]: 10,
+            }
+        };
+        const newState = reducer(currentState, actions.quitGame());
+
+        expect(newState).toEqual(defaultState);
+    });
 });
 
 describe('board selectors', () => {
@@ -371,13 +391,13 @@ describe('board selectors', () => {
             selectors.getCaptured({
                 ...defaultState,
                 captured: {
-                    [constants.BLACK]: 0,
-                    [constants.WHITE]: 1,
+                    [constants.BLACK]: 5,
+                    [constants.WHITE]: 2,
                 },
             }),
         ).toEqual({
-            [constants.BLACK]: 0,
-            [constants.WHITE]: 1,
+            [constants.BLACK]: 5,
+            [constants.WHITE]: 2,
         });
     });
 
