@@ -12,6 +12,7 @@ import ActiveColor from './ActiveColor';
 import BoardMessage from './BoardMessage';
 import PassButton from './PassButton';
 import ResetBoardButton from './ResetBoardButton';
+import QuitGameButton from './QuitGameButton';
 
 class App extends Component {
     // componentDidMount() {
@@ -55,6 +56,10 @@ class App extends Component {
                         alignItems: 'center',
                     }}
                 >
+                    <PassButton />
+                    <ActiveColor />
+                    <Captured />
+                    <BoardMessage />
                     <div
                         style={{
                             display: 'flex',
@@ -63,12 +68,9 @@ class App extends Component {
                             justifyContent: 'space-evenly',
                         }}
                     >
-                        <PassButton />
                         <ResetBoardButton />
+                        <QuitGameButton />
                     </div>
-                    <ActiveColor />
-                    <Captured />
-                    <BoardMessage />
                 </div>
             </div>
         </div>

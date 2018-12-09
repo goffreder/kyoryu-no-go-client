@@ -346,7 +346,7 @@ describe('board reducer', () => {
             captured: {
                 [constants.BLACK]: 5,
                 [constants.WHITE]: 10,
-            }
+            },
         };
         const newState = reducer(currentState, actions.quitGame());
 

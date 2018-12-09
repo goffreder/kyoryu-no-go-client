@@ -4571,31 +4571,13 @@ exports[`App component displays the board if it has been initialized 1`] = `
           }
         }
       >
-        <div
-          style={
-            Object {
-              "display": "flex",
-              "flexDirection": "column",
-              "height": 100,
-              "justifyContent": "space-evenly",
-            }
-          }
+        <button
+          className="waves-effect waves-light btn blue-grey darken-4"
+          id="pass-btn"
+          onClick={[Function]}
         >
-          <button
-            className="waves-effect waves-light btn blue-grey darken-4"
-            id="pass-btn"
-            onClick={[Function]}
-          >
-            Pass
-          </button>
-          <button
-            className="waves-effect waves-light btn blue-grey darken-4"
-            id="reset-board-btn"
-            onClick={[Function]}
-          >
-            Reset board
-          </button>
-        </div>
+          Pass
+        </button>
         <div
           id="active-color"
           style={
@@ -4730,6 +4712,31 @@ exports[`App component displays the board if it has been initialized 1`] = `
           }
         >
           
+        </div>
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexDirection": "column",
+              "height": 100,
+              "justifyContent": "space-evenly",
+            }
+          }
+        >
+          <button
+            className="waves-effect waves-light btn blue-grey darken-4"
+            id="reset-board-btn"
+            onClick={[Function]}
+          >
+            Reset board
+          </button>
+          <button
+            className="waves-effect waves-light btn blue-grey darken-4"
+            id="quit-game-btn"
+            onClick={[Function]}
+          >
+            Quit game
+          </button>
         </div>
       </div>
     </div>

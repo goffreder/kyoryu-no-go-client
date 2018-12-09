@@ -67,7 +67,7 @@ describe('board action creators', () => {
 
     it('should create an action to quit the game', () => {
         expect(actions.quitGame()).toEqual({
-            type: 'QUIT_GAME'
+            type: 'QUIT_GAME',
         });
     });
 });
