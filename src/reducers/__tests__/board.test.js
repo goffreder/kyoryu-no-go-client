@@ -354,6 +354,45 @@ describe('board reducer', () => {
 
         expect(newState).toEqual(defaultState);
     });
+
+    it('should set the last move after a valid play', () => {
+        const currentState = {
+            ...defaultState,
+            board: [
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+                [constants.BLACK, constants.WHITE, constants.EMPTY],
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+            ],
+        };
+        const newState = reducer(currentState, actions.play(1, 2));
+
+        expect(newState.lastMove).toEqual([1, 2]);
+    });
+
+    it('should not change the last move after a forbidden or invalid play', () => {
+        const currentState = {
+            ...defaultState,
+            board: [
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+                [constants.BLACK, constants.WHITE, constants.EMPTY],
+                [constants.EMPTY, constants.EMPTY, constants.EMPTY],
+            ],
+            lastMove: null,
+        };
+        const newState = reducer(currentState, actions.play(1, 1));
+
+        expect(newState.lastMove).toEqual(null);
+    });
+
+    it('should unset the last move after a pass', () => {
+        const currentState = {
+            ...defaultState,
+            lastMove: [1, 2],
+        };
+        const newState = reducer(currentState, actions.pass());
+
+        expect(newState.lastMove).toEqual(null);
+    });
 });
 
 describe('board selectors', () => {
@@ -487,5 +526,14 @@ describe('board selectors', () => {
                 atari: true,
             }),
         ).toEqual(msg.ATARI);
+    });
+
+    it('should return the last move', () => {
+        expect(
+            selectors.getLastMove({
+                ...defaultState,
+                lastMove: [1, 2],
+            }),
+        ).toEqual([1, 2]);
     });
 });

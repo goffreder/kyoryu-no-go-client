@@ -16,4 +16,16 @@ describe('Stone component', () => {
             renderer.create(<Stone color={board.BLACK} />).toJSON(),
         ).toMatchSnapshot();
     });
+
+    it('displays a white stone (last move)', () => {
+        expect(
+            renderer.create(<Stone color={board.WHITE} isLastMove />).toJSON(),
+        ).toMatchSnapshot();
+    });
+
+    it('displays a black stone (last move)', () => {
+        expect(
+            renderer.create(<Stone color={board.BLACK} isLastMove />).toJSON(),
+        ).toMatchSnapshot();
+    });
 });

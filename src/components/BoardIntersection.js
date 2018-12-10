@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { func, number, oneOf, bool } from 'prop-types';
+import { func, number, oneOf, bool, arrayOf } from 'prop-types';
 import classNames from 'classnames';
 
 import Stone from './Stone';
@@ -18,12 +18,14 @@ export default class extends Component {
         isLeftEdge: bool,
         isStarPoint: bool,
         readonly: bool,
+        lastMove: arrayOf(number),
     };
 
     static defaultProps = {
         color: board.EMPTY,
         width: 100,
         readonly: false,
+        lastMove: null,
     };
 
     handleClick = () => {
@@ -33,6 +35,11 @@ export default class extends Component {
     };
 
     render() {
+        const isLastMove = this.props.lastMove
+            ? this.props.lastMove[0] === this.props.row &&
+              this.props.lastMove[1] === this.props.col
+            : false;
+
         return (
             <div
                 style={{
@@ -102,7 +109,10 @@ export default class extends Component {
                         }}
                     />
                     {this.props.color !== board.EMPTY ? (
-                        <Stone color={this.props.color} />
+                        <Stone
+                            color={this.props.color}
+                            isLastMove={isLastMove}
+                        />
                     ) : null}
                 </div>
             </div>

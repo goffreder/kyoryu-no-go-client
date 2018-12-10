@@ -109,6 +109,22 @@ describe('BoardIntersection component', () => {
         ).toBeInTheDocument();
     });
 
+    it('displays the last placed white stone on an intersection', () => {
+        expect(
+            renderer
+                .create(
+                    <BoardIntersection
+                        row={0}
+                        col={0}
+                        play={() => {}}
+                        color={board.WHITE}
+                        lastMove={[0, 0]}
+                    />,
+                )
+                .toJSON(),
+        ).toMatchSnapshot();
+    });
+
     it('calls "play" prop on intersection click', () => {
         const play = jest.fn();
         const { container } = render(

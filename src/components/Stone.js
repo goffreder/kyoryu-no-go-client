@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { oneOf } from 'prop-types';
+import { oneOf, bool } from 'prop-types';
 import classNames from 'classnames';
 // import Dimensions from 'react-dimensions';
 
@@ -8,6 +8,11 @@ import { board as constants } from '../constants';
 class Stone extends Component {
     static propTypes = {
         color: oneOf([constants.BLACK, constants.WHITE]).isRequired,
+        isLastMove: bool,
+    };
+
+    static defaultProps = {
+        isLastMove: false,
     };
 
     render() {
@@ -42,7 +47,25 @@ class Stone extends Component {
                     bottom: '5%',
                     left: '5%',
                 }}
-            />
+            >
+                {this.props.isLastMove ? (
+                    <div
+                        style={{
+                            width: '40%',
+                            height: '40%',
+                            borderRadius: '100%',
+                            top: '30%',
+                            left: '30%',
+                            position: 'relative',
+                            border:
+                                '0.2em solid ' +
+                                (this.props.color === constants.BLACK
+                                    ? '#EEEEF0'
+                                    : '#101015'),
+                        }}
+                    />
+                ) : null}
+            </div>
         );
     }
 }

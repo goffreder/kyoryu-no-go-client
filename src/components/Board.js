@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { arrayOf, oneOf, bool } from 'prop-types';
+import { arrayOf, oneOf, bool, number } from 'prop-types';
 
 import { play } from '../actions/board';
-import { getBoard } from '../reducers/board';
+import { getBoard, getLastMove } from '../reducers/board';
 import { board } from '../constants';
 import BoardIntersection from './BoardIntersection';
 
 export class Board extends Component {
     static propTypes = {
         board: arrayOf(arrayOf(oneOf([board.EMPTY, board.BLACK, board.WHITE]))),
+        lastMove: arrayOf(number),
         readonly: bool,
     };
 
     static defaultProps = {
         board: [],
         readonly: false,
+        lastMove: null,
     };
 
     render() {
@@ -61,6 +63,7 @@ export class Board extends Component {
                                         starPoints.indexOf(j) >= 0
                                     }
                                     readonly={this.props.readonly}
+                                    lastMove={this.props.lastMove}
                                 />
                             ))}
                         </div>
@@ -71,8 +74,9 @@ export class Board extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    board: getBoard(state.board),
+const mapStateToProps = ({ board }) => ({
+    board: getBoard(board),
+    lastMove: getLastMove(board),
 });
 
 const mapDispatchToProps = {

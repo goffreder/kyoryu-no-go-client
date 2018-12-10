@@ -9,6 +9,7 @@ export const defaultState = {
         [constants.BLACK]: 0,
         [constants.WHITE]: 0,
     },
+    lastMove: null,
     color: constants.BLACK,
     atari: false,
     suicide: false,
@@ -108,6 +109,7 @@ const reducer = {
             atari,
             suicide: false,
             passed: false,
+            lastMove: [row, col],
         };
     },
     PASS: (state, { payload }) => {
@@ -128,6 +130,7 @@ const reducer = {
             passed: true,
             color: newColor,
             gameOver: state.passed && true,
+            lastMove: null,
         };
     },
 };
@@ -135,6 +138,7 @@ const reducer = {
 export const isBoardInit = state => !isEmpty(state.board);
 export const getBoard = state => state.board;
 export const getCaptured = state => state.captured;
+export const getLastMove = state => state.lastMove;
 export const getActiveColor = state => state.color;
 
 export const getBoardMessage = state => {
