@@ -1,7 +1,9 @@
-import reducer, * as selectors from '../board';
+import _reducers, * as selectors from '../board';
+import { THOR } from '../../setupTests';
 import * as actions from '../../actions/board';
 import { board as constants, msg } from '../../constants';
 
+const reducer = THOR(_reducers);
 const { defaultState } = selectors;
 
 describe('board reducer', () => {

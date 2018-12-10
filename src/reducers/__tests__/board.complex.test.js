@@ -1,6 +1,9 @@
-import reducer, { defaultState } from '../board';
+import _reducers, { defaultState } from '../board';
+import { THOR } from '../../setupTests';
 import * as actions from '../../actions/board';
 import { board } from '../../constants';
+
+const reducer = THOR(_reducers);
 
 describe('board complex tests', () => {
     it('should count the correct amount of captured stones', () => {
